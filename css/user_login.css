@@ -1,0 +1,33 @@
+.mid_content{
+	background-repeat: no-repeat;
+	height: 37rem;
+}
+.login_box{
+	background: rgba(255, 255, 255, 0.6);	
+	/* margin: 10rem auto;  */  
+	position: absolute;
+	top: 15rem;
+	right: 10rem;
+	width: 20rem;
+}
+.register_box{
+	background: rgba(255, 255, 255, 0.6);	
+	margin: 5rem auto; 	
+	width: 20rem;
+}
+.login_input{
+	font-size: 0.7rem;
+
+}
+.mid_content::before{
+	content: '';
+	display: table;
+}
+@media screen and (max-width: 767px) {	
+	.login_box{
+	background: rgba(255, 255, 255, 0.6);	
+	position: static;
+	margin: 5rem auto; 	
+	width: 20rem;
+    }
+}
