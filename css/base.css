@@ -63,3 +63,17 @@
 	background: #FF0077;
 	height: 1.2rem;
 }
+.search{
+	height: 2rem;
+	font-size: 0.7rem;
+}
+.search_btn{
+	height: 2rem;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 0px;
+	background: linear-gradient(to right,#FF2156,#FF2156);
+	font-size: 0.7rem;
+	color: white;
+	font-weight: bold;
+}

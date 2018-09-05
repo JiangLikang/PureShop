@@ -35,6 +35,14 @@
 		display: flex;
 		justify-content: between;
 	}
+	.haixianggou {
+		display: flex !important;
+		justify-content: between !important;
+		flex-wrap: wrap !important;
+	}
+	.haixianggou div{
+		width: 30% !important;
+	}
 }
 .remai_pic{
 	width: 80%;
