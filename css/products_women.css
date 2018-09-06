@@ -47,6 +47,9 @@
 .remai_pic{
 	width: 80%;
 }
+.remai_pic:hover{
+	transform: translateY(-0.5rem);
+}
 .remai_border{
 	border-left:1px solid #f5f5f5;
 }
