@@ -69,11 +69,28 @@
 }
 .search_btn{
 	height: 2rem;
+	width: 4rem;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border: 0px;
 	background: linear-gradient(to right,#FF2156,#FF2156);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	color: white;
 	font-weight: bold;
+	line-height: 2rem;
+	text-align: center;
+}
+.search_btn:hover{
+	text-decoration: none;
+	color: white;
+
+}
+a{
+	color: black;
+	
+}
+a:hover{
+	color: #FF5777;
+	text-decoration: none;
+
 }
