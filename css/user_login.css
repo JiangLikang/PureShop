@@ -31,3 +31,7 @@
 	width: 20rem;
     }
 }
+.login_bg{
+	background-image: url('../static/img/user_login/background_pic.png');
+	background-position: center center;
+}

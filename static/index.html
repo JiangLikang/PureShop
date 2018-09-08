@@ -17,38 +17,299 @@
 			<iframe src="header.html" frameborder="0" class="header"></iframe>
 		</header>
 		<!-- 主体 -->
-		<div class="container-fluid bg-f5" style="border-top:2px solid #FF0077;" >
+		<div class="container-fluid bg-f5" style="border-top:2px solid #FF0077;">	
 			<!-- 轮播广告图 -->
-			<div class="carousel" id="mycar" data-ride="carousel">
-				<!-- 指示器 -->
-				<ul class="carousel-indicators">
-					<li data-slide-to="0" data-target="#mycar"></li>
-					<li data-slide-to="1" data-target="#mycar"></li>
-					<li data-slide-to="2" data-target="#mycar"></li>
-				</ul>
-				<!-- 轮播内容 -->
-				<div class="carousel-inner">
-					<div class="carousel-item active text-center">
-						<a href=""><img src="img/index/banner1.png" alt="" class="banner img-fluid"></a>
+			<div class="container-fluid"  >
+				<div class="carousel" id="mycar" data-ride="carousel">
+					<!-- 指示器 -->
+					<ul class="carousel-indicators">
+						<li data-slide-to="0" data-target="#mycar"></li>
+						<li data-slide-to="1" data-target="#mycar"></li>
+						<li data-slide-to="2" data-target="#mycar"></li>
+					</ul>
+					<!-- 轮播内容 -->
+					<div class="carousel-inner">
+						<div class="carousel-item active text-center">
+							<a href=""><img src="img/index/banner1.png" alt="" class="banner img-fluid"></a>
+						</div>
+						<div class="carousel-item text-center">
+							<a href=""><img src="img/index/banner2.png" alt="" class="banner img-fluid"></a>
+						</div>
+						<div class="carousel-item text-center">
+							<a href=""><img src="img/index/banner3.png" alt="" class="banner img-fluid"></a>
+						</div>
 					</div>
-					<div class="carousel-item text-center">
-						<a href=""><img src="img/index/banner2.png" alt="" class="banner img-fluid"></a>
+					<!-- 轮播箭头 -->
+					<a href="#mycar" class="carousel-control-prev" data-slide="prev">
+						<span class="carousel-control-prev-icon" ></span>
+					</a>
+					<a href="#mycar" class="carousel-control-next" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+			</div>
+			<!-- 限时抢购 -->
+			<div class="container-fluid mt-3" style="width: 85%;">			
+				<div class="row" >
+					<div class="col-md-2 bg-dark qianggou d-flex flex-column justify-content-around">
+						<h5 class="pt-4">限时抢购</h5>
+						<span class="time" id="time" >00:00:00</span>
+						<p>每日整点更新</p>
 					</div>
-					<div class="carousel-item text-center">
-						<a href=""><img src="img/index/banner3.png" alt="" class="banner img-fluid"></a>
+					<div class="col-md-10 pt-2" style="height: 15rem;">			       	
+						<!-- 限时商品轮播内容 -->
+						<div class="carousel-inner">
+							<div class="carousel-item active d-flex justify-content-around">
+								<div>
+									<a href="">
+										<img src="img/index/xianshi1.png" alt="" class="xianshi_img img-thumbnail">
+										<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi2.png" alt="" class="xianshi_img img-thumbnail">
+										<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi3.png" alt="" class="xianshi_img img-thumbnail">
+										<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi4.png" alt="" class="xianshi_img img-thumbnail">
+										<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi5.png" alt="" class="xianshi_img img-thumbnail">
+										<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+							</div>					
+						</div>									      
 					</div>
 				</div>
-				<!-- 轮播箭头 -->
-				<a href="#mycar" class="carousel-control-prev" data-slide="prev">
-					<span class="carousel-control-prev-icon" ></span>
-				</a>
-				<a href="#mycar" class="carousel-control-next" data-slide="next">
-					<span class="carousel-control-next-icon"></span>
-				</a>
 			</div>
-			
+			<!-- 春装推荐 -->
+			<div class="container-fluid pt-4" style="width: 85%;">			
+				<div class="row">
+					<div class="col-xl-2 text-center">
+						<h5>&春装推荐&</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 tuijian_left p-0" >
+						<img src="img/index/spring.png" alt="" class="img-fluid">
+					</div>
+					<div class="col-md-10 " style="height: 20rem;">			       	
+						<div class="carousel-inner">
+							<div class="carousel-item active d-flex justify-content-around">
+								<div>
+									<a href="">
+										<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi4.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+							</div>					
+						</div>									      
+					</div>
+			   </div>
+			</div>
+			<!-- 夏装推荐 -->
+			<div class="container-fluid pt-4 mt-4" style="width: 85%;">			
+				<div class="row">
+					<div class="col-xl-2 text-center">
+						<h5>&夏装推荐&</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 tuijian_left p-0" >
+						<img src="img/index/summer.png" alt="" class="img-fluid">
+					</div>
+					<div class="col-md-10 " style="height: 20rem;">			       	
+						<div class="carousel-inner">
+							<div class="carousel-item active d-flex justify-content-around">
+								<div>
+									<a href="">
+										<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi4.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+							</div>					
+						</div>									      
+					</div>
+				</div>
+			</div>
+			<!-- 秋装推荐 -->
+			<div class="container-fluid pt-4 mt-4" style="width: 85%;">			
+				<div class="row">
+					<div class="col-xl-2 text-center">
+						<h5>&秋装推荐&</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 tuijian_left p-0" >
+						<img src="img/index/autumn.png" alt="" class="img-fluid">
+					</div>
+					<div class="col-md-10 " style="height: 20rem;">			       	
+						<div class="carousel-inner">
+							<div class="carousel-item active d-flex justify-content-around">
+								<div>
+									<a href="">
+										<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi4.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+							</div>					
+						</div>									      
+					</div>
+				</div>
+			</div>
+			<!-- 冬装推荐 -->
+			<div class="container-fluid pt-4 mt-4 pb-4" style="width: 85%;">			
+				<div class="row">
+					<div class="col-xl-2 text-center">
+						<h5>&冬装推荐&</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 tuijian_left p-0" >
+						<img src="img/index/winter.png" alt="" class="img-fluid">
+					</div>
+					<div class="col-md-10 " style="height: 20rem;">			       	
+						<div class="carousel-inner">
+							<div class="carousel-item active d-flex justify-content-around">
+								<div>
+									<a href="">
+										<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi4.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+								<div>
+									<a href="">
+										<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
+										<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+										</p>
+									</a>
+									<span>￥59</span>
+								</div>
+							</div>					
+						</div>									      
+					</div>
+				</div>
+			</div>		
 		</div>
-		
 		<!-- 底部 -->
 		<footer>
 			<iframe src="footer.html" frameborder="0" class="footer"></iframe>
@@ -60,5 +321,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<!-- myself_js -->
+		<script src="../js/index.js"></script>
 	</body>
 </html>

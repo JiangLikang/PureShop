@@ -54,7 +54,7 @@
 }
 .line-pink{
 	background: #FF0077;
-	height: 1.2rem;
+	height: 1.2px;
 }
 .search{
 	height: 2rem;
@@ -85,4 +85,9 @@ a{
 a:hover{
 	color: #FF2156/* #FF5777 */;
 	text-decoration: none;
+}
+.content_hide{
+	overflow: hidden; 
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
