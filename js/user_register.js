@@ -9,10 +9,12 @@
 			e.preventDefault();
 		}
 	}
+
 	var form = document.forms[0];
 	form.uname.onblur = function(e) {
 		vali(this, /^\w{3,9}$/, '用户名必须介于3-9位之间', e);
 	}
+
 	form.user_name.onblur = function(e) {
 		vali(this, /[0-9\u4e00-\u9fa5]{3,9}/, '昵称必须介于3-9个字符之间', e);
 	}
@@ -20,7 +22,7 @@
 		vali(this, /^(男|女)$/, '格式错误', e);
 	}
 	form.upwd.onblur = function(e) {
-		vali(this, /^\w{6,10}$/, '密码必须介于6-8位之间', e);
+		vali(this, /^\w{6,8}$/, '密码必须介于6-8位之间', e);
 	}
 	form.check_upwd.onblur = function(e) {
 		var pwd = form.upwd.value;

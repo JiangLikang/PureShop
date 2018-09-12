@@ -8,6 +8,7 @@
 .pic_li:hover{
 	border: 1px solid #B9B6B6;
 	box-sizing: border-box;
+	border-radius: 4px;
 }
 .price2{
 	font-size: 2rem;

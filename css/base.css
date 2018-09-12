@@ -98,3 +98,6 @@ a:hover{
 .login_input{
 	font-size: 0.7rem;	
 }
+#sub{
+	cursor: pointer;
+}

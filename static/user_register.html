@@ -23,18 +23,19 @@
 		<!-- 内容 -->
 		<div class="container-fluid mid_content p-0 bg-f5">
 			<div id="register" class="register_box text-center  p-3">
-				<h4 style="color:#FF5670 ;">用户注册</h4>
+				<h4 style="color:#FF5670 ;" class="">用户注册</h4>
 				<hr>
 				<form method="post" action="/user/add" class="w-75" style="margin: 0px auto;">
-					<input type="text" name="uname" placeholder="用户名" class="login_input form-control "><span></span><br>
-					<input type="password" name="upwd" placeholder="密码" class="login_input form-control "><span></span><br>
-					<input type="password" name="check_upwd" placeholder="确认密码" class="login_input form-control "><span></span><br>
-					<input type="text" name="user_name" placeholder="昵称" class="login_input form-control "><span></span><br>
+					<input type="text" name="uname" placeholder="用户名" class="login_input form-control " maxlength="9"><span></span><br>
+					<input type="password" name="upwd" placeholder="密码" class="login_input form-control " maxlength="8"><span></span><br>
+					<input type="password" name="check_upwd" placeholder="确认密码" class="login_input form-control " maxlength="8"><span></span><br>
+					<input type="text" name="user_name" placeholder="昵称" class="login_input form-control " maxlength="9"><span></span><br>
 					<input type="text" name="gender" placeholder="性别(男/女)" class="login_input form-control "><span></span><br>
 				    <input type="text" name="email" placeholder="邮箱" class="login_input form-control "><span></span><br>
 					<input type="text" name="phone" placeholder="手机" class="login_input form-control "><span></span><br>
 					<input type="submit" value="注册" class="form-control login_input text-white" style="background: #FF5670;" id="sub"><br>
-					<input type="checkbox" class="checkbox" data-check='false'><span class="text-small" id="isAgree">我同意本站的<a href="" style="text-decoration: underline;">使用条款</a></span><br>
+					<input type="checkbox" class="checkbox" ><span class="text-small" id="isAgree">我同意本站的<a href="" style="text-decoration: underline;">使用条款</a></span><br>
+					<span class="text-small" id="isAgree">已有账号？<a href="user_login.html" style="text-decoration: underline;">点击登录</a></span><br>
 				</form>	
 				<div class="alert fade ">
 					<span class="close">×</span>

@@ -24,21 +24,15 @@
 			<div id="login" class="login_box text-center  p-3">
 				<h4 style="color:#FF5670 ;">用户登录</h4>
 				<hr>
-				<p class="w-75" style="margin: 0px auto;">
-					<input type="text" id="uname" placeholder="请输入用户名" class="login_input form-control ">
-				</p>
-				<p class="w-75 pt-3" style="margin: 0px auto;">
-					<input type="password" id="upwd" placeholder="请输入密码" class="login_input form-control">
-				</p>
-				<p class="w-75 pt-3 d-flex justify-content-around" style="margin: 0px auto;">					
-					<input type="button" value="登录" onclick="user_check()" class="form-control login_input text-white" style="background: #FF5670;">
-					
-				</p>
-				<p class="w-75 pt-3 d-flex justify-content-end" style="margin: 0px auto;">
+				<form action="" class="w-75" style="margin: 0px auto;">
+					<input type="text" id="uname" placeholder="请输入用户名" class="login_input form-control mt-2">
+					<input type="password" id="upwd" placeholder="请输入密码" class="login_input form-control mt-3">
+					<input type="submit" value="登录" onclick="user_check()" class="form-control login_input text-white mt-3" style="background: #FF5670;" id="sub">
+				</form>					
+				<div class="w-75 pt-3 d-flex justify-content-end" style="margin: 0px auto;">
 					<a href="user_register.html" target="_blank" class="text-muted  login_input w-25">注册</a>
 					<a href="" class="text-muted login_input">忘记密码</a>	
-				</p>
-					 				
+				</div>					 				
 		    </div>
 		</div>
 		

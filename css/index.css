@@ -1,13 +1,16 @@
 .qianggou{
-	height: 15rem;
+	/* height: 17rem; */
 	color: white;
 	text-align: center;
 }
 .time{
 	font-size: 1.5rem;
 }
+.xianshi_item{
+	width: 15%;
+}
 .xianshi_img{
-	width: 8rem;
+	width: 100%;
 
 }
 .xianshi_img:hover{
@@ -16,7 +19,7 @@
 	border-right: 1px solid #f25;
 }
 .tuijian_left{
-	height: 20rem;
+	
 	overflow: hidden;
 	position: relative;
 	background: #f25;
@@ -36,8 +39,11 @@
 .tuijian_left img:hover{
 	transform: scale(1.1);
 }
+.floor-item{
+	width: 20%
+}
 .tuijian_img{
-	width: 11.8rem;
+	width: 100%;
 	
 }
 .tuijian_img:hover{
