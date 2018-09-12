@@ -9,46 +9,53 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 		<link rel="stylesheet" href="../css/base.css">
-		<link rel="stylesheet" href="../css/user_login.css">
+		<link rel="stylesheet" href="../css/user_register.css">
 	</head>
-	<body>
+	<body class="bg-f5">
 		<!-- 头部 -->
 		<header>
 		    <!-- logo -->
 			<div class="col-md-4 pt-3 pb-3" >
-				<a href="#" class="header_top_name pl-5">纯纯购</a>
+				<a href="index.html" class="header_top_name pl-5">纯纯购</a>
 			</div>
 		</header>
+		<hr class="line-pink m-0">
 		<!-- 内容 -->
-		<div class="container-fluid mid_content p-0" style="background-image: url('img/user_login/background_pic.png');background-position: center center;">
+		<div class="container-fluid mid_content p-0 bg-f5">
 			<div id="register" class="register_box text-center  p-3">
 				<h4 style="color:#FF5670 ;">用户注册</h4>
 				<hr>
 				<form method="post" action="/user/add" class="w-75" style="margin: 0px auto;">
-					<input type="text" name="uname" placeholder="用户名" class="login_input form-control "><br>
-					<input type="text" name="user_name" placeholder="昵称" class="login_input form-control "><br>
-					<input type="text" name="gender" placeholder="性别" class="login_input form-control "><br>
-					<input type="text" name="upwd" placeholder="密码" class="login_input form-control "><br>
-				    <input type="text" name="email" placeholder="邮箱" class="login_input form-control "><br>
-					<input type="text" name="phone" placeholder="手机" class="login_input form-control "><br>
-					<input type="submit" value="注册" class="form-control login_input text-white" style="background: #FF5670;">
-				</form>					 				
+					<input type="text" name="uname" placeholder="用户名" class="login_input form-control "><span></span><br>
+					<input type="password" name="upwd" placeholder="密码" class="login_input form-control "><span></span><br>
+					<input type="password" name="check_upwd" placeholder="确认密码" class="login_input form-control "><span></span><br>
+					<input type="text" name="user_name" placeholder="昵称" class="login_input form-control "><span></span><br>
+					<input type="text" name="gender" placeholder="性别(男/女)" class="login_input form-control "><span></span><br>
+				    <input type="text" name="email" placeholder="邮箱" class="login_input form-control "><span></span><br>
+					<input type="text" name="phone" placeholder="手机" class="login_input form-control "><span></span><br>
+					<input type="submit" value="注册" class="form-control login_input text-white" style="background: #FF5670;" id="sub"><br>
+					<input type="checkbox" class="checkbox" data-check='false'><span class="text-small" id="isAgree">我同意本站的<a href="" style="text-decoration: underline;">使用条款</a></span><br>
+				</form>	
+				<div class="alert fade ">
+					<span class="close">×</span>
+					<div>您必须同意条款才能注册！</div>
+				</div>				 				
 		    </div>
-
 		</div>
 		
 		<!-- 底部 -->
 		<footer>
 			<iframe src="footer.html" frameborder="0" class="footer"></iframe>
 		</footer>
-
+		
+		<!-- <script src="../js/jquery-1.11.3.js"></script> -->
 		<script src="common.js"></script>
-		<script src="../js/user_login.js"></script>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="../js/user_register.js"></script>
 	</body>
 </html>
 

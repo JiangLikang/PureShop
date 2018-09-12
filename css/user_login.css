@@ -10,15 +10,7 @@
 	right: 10rem;
 	width: 20rem;
 }
-.register_box{
-	background: rgba(255, 255, 255, 0.6);	
-	margin: 5rem auto; 	
-	width: 20rem;
-}
-.login_input{
-	font-size: 0.7rem;
 
-}
 .mid_content::before{
 	content: '';
 	display: table;

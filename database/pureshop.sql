@@ -29,45 +29,25 @@ INSERT INTO pureshop_nav VALUES
 (NULL,'男装','/man.html','进入男装',1),
 (NULL,'女装','/women.html','进入女装',1);
 
-
-/**男装产品**/
-CREATE TABLE pureshop_product_man(
-  mid INT PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(128),         #主标题
-  subtitle VARCHAR(128),      #副标题
-  price DECIMAL(10,2),        #价格
-  promise VARCHAR(64),        #服务承诺
-  spec VARCHAR(64),           #规格/颜色
-  pname VARCHAR(32),          #商品名称 
-  details VARCHAR(1024),      #产品详细说明
-  shelf_time BIGINT,          #上架时间
-  sold_count INT,             #已售出的数量
-  is_onsale BOOLEAN           #是否促销中
-);
-
 /**女装产品**/
 CREATE TABLE pureshop_product_woman(
   wid INT PRIMARY KEY AUTO_INCREMENT,
+  lg VARCHAR(128)             #大图片路径
+  sm1 VARCHAR(128),            #小图片路径
+  sm2 VARCHAR(128),            #小图片路径
+  sm3 VARCHAR(128),            #小图片路径
+  sm4 VARCHAR(128),            #小图片路径
+  sm5 VARCHAR(128),            #小图片路径
   title VARCHAR(128),         #主标题
   subtitle VARCHAR(128),      #副标题
   price DECIMAL(10,2),        #价格
+  score DECIMAL(2,1)          #评分
+  sold_count INT,             #累积销量
+  stock VARCHAR(64),          #库存
   promise VARCHAR(64),        #服务承诺
-  spec VARCHAR(64),           #规格/颜色
   pname VARCHAR(32),          #商品名称 
-  details VARCHAR(1024),      #产品详细说明
-  shelf_time BIGINT,          #上架时间
-  sold_count INT,             #已售出的数量
-  is_onsale BOOLEAN           #是否促销中
 );
 
-/**商品图片**/
-CREATE TABLE pureshop_product_pic(
-  picid INT PRIMARY KEY AUTO_INCREMENT,
-  product_id INT,              #商品编号
-  sm VARCHAR(128),            #小图片路径
-  md VARCHAR(128),            #中图片路径
-  lg VARCHAR(128)             #大图片路径
-);
 
 /**用户信息**/
 CREATE TABLE pureshop_user(

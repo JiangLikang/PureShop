@@ -91,3 +91,10 @@ a:hover{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
+.header_top_name{
+	color: #FF2156;
+	font-size: 2rem;
+}
+.login_input{
+	font-size: 0.7rem;	
+}

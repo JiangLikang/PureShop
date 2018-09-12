@@ -1,0 +1,59 @@
+.register_box{
+	border: 1px solid black;	
+	margin: 3rem auto; 	
+	width: 25rem;
+	border-radius: 10px;
+}
+.checkbox{
+	position: relative;
+	top: 2px;
+}
+.alert{
+	border:1px solid #a33;
+	color:#922;
+	background:#fee;
+	padding:10px;
+	border-radius: 20px;
+}
+.alert div{
+	margin-top: 5rem;
+}
+.alert>.close{
+	float:right;
+	font-weight:bold;
+	opacity:.5;
+	cursor:pointer;	
+}
+.alert>.close:hover{opacity:1}
+.fade{ /*定义淡入淡出动画的初始状态,常驻元素*/
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: 0px;
+	margin-top: 0px;
+	opacity: 0;
+	transition: all 0.6s;
+}
+.in{ /*定义淡入淡出动画的结束状态*/
+	width: 400px;
+	height: 200px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -100px;
+	opacity: 1;
+}
+form span:not(#isAgree){
+	font-size: 0.7rem;
+	float: left;
+	line-height: 1.5rem;
+}
+form img{
+	padding-bottom: 3px;
+}
+.mid_content{
+	
+}
