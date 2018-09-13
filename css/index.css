@@ -8,12 +8,14 @@
 }
 .xianshi_item{
 	width: 15%;
+	transition: all .3s;
 }
 .xianshi_img{
 	width: 100%;
+	transition: all .3s;
 
 }
-.xianshi_img:hover{
+.xianshi_item:hover{
 	transform: scale(0.95);
 	border-left: 1px solid #f25;
 	border-right: 1px solid #f25;
@@ -40,10 +42,12 @@
 	transform: scale(1.1);
 }
 .floor-item{
-	width: 20%
+	width: 20%;
+	
 }
 .tuijian_img{
 	width: 100%;
+	transition: all .3s;
 	
 }
 .tuijian_img:hover{

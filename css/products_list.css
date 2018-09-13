@@ -4,6 +4,9 @@
 .list-item:hover{
 	border: 1px solid #FF5777;
 }
+.list-item img{
+	transition: all .3s;
+}
 .list-item img:hover{
 	transform: scale(0.95);
 }
