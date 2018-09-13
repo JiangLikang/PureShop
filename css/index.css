@@ -85,4 +85,10 @@ span:not(#time){
 	-webkit-transform: translateY(100%);
 	transform: translateY(100%);
 }
+.mid_content{
+	border-top:2px solid #FF0077;
 
+}
+.mid_content>div:not(.lunbo){
+	width: 85%;
+}
