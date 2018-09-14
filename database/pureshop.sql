@@ -56,7 +56,6 @@ CREATE TABLE pureshop_user(
   upwd VARCHAR(32),
   email VARCHAR(64),
   phone VARCHAR(16),
-
   avatar VARCHAR(128),        #头像图片路径
   user_name VARCHAR(32),      #用户名，如王小明
   gender INT                  #性别  0-女  1-男
@@ -112,33 +111,22 @@ CREATE TABLE pureshop_order_detail(
 CREATE TABLE pureshop_index_carousel(
   cid INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(128),
-  title VARCHAR(64),
-  href VARCHAR(128)
+  title VARCHAR(64)
 );
 
 /****首页商品****/
 CREATE TABLE pureshop_index_product(
   pid INT PRIMARY KEY AUTO_INCREMENT,
+  type VARCHAR(16),
   title VARCHAR(64),
-  details VARCHAR(128),
   pic VARCHAR(128),
   price DECIMAL(10,2),
-  href VARCHAR(128),
-  seq_recommended TINYINT,
-  seq_new_arrival TINYINT,
-  seq_top_sale TINYINT
+  href VARCHAR(128)
 );
 
 /*******************/
 /******数据导入******/
 /*******************/
-
-
-
-
-
-
-
 
 /**用户信息**/
 INSERT INTO pureshop_user VALUES
@@ -149,12 +137,17 @@ INSERT INTO pureshop_user VALUES
 
 /****首页轮播广告商品****/
 INSERT INTO pureshop_index_carousel VALUES
-(NULL, 'img/index/banner1.png','轮播广告商品1','product_details.html?lid=28'),
-(NULL, 'img/index/banner2.png','轮播广告商品2','product_details.html?lid=19'),
-(NULL, 'img/index/banner3.png','轮播广告商品3','lookforward.html'),
-(NULL, 'img/index/banner4.png','轮播广告商品4','lookforward.html');
+(NULL, 'img/index/banner1.png','轮播广告商品1'),
+(NULL, 'img/index/banner2.png','轮播广告商品2'),
+(NULL, 'img/index/banner3.png','轮播广告商品3'),
+(NULL, 'img/index/banner4.png','轮播广告商品4');
 
 /****首页商品****/
--- INSERT INTO pureshop_index_product VALUES
+INSERT INTO pureshop_index_product VALUES
+(NULL,'xianshi','女装秋装胖mm新款藏肉连衣裙洋气套装胖妹妹显瘦两件套','img/index/xianshi1.png',75),
+(NULL,'xianshi','秋季2018新款原宿时尚套装连帽运动卫衣套装女休闲风短款卫衣韩版休闲裤学生显瘦两件套卡麦丝','img/index/xianshi2.png',47),
+(NULL,'xianshi','热卖套装早秋新款中长款无袖吊带连衣裙+长袖宽松显瘦百搭长款毛衣裙子套装','img/index/xianshi3.png',89),
+(NULL,'xianshi','秋季帅气bf女装酷潮衣服原宿风嘻哈少女街拍网红宽松两件套装裤女','img/index/xianshi4.png',79),
+(NULL,'xianshi','卫衣套装2018女春秋新款韩版宽松连帽学生ulzzang休闲运动两件套装','img/index/xianshi5.png',39)
 
 

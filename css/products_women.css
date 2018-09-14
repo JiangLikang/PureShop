@@ -31,11 +31,14 @@
 	width: 1rem;
 	height: 1rem;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
 	.remai_small{
 		display: flex;
 		justify-content: between;
 	}
+}
+@media screen and (max-width: 767px) {
+	
 	.haixianggou {
 		display: flex !important;
 		justify-content: between !important;
@@ -78,4 +81,21 @@
 .haixianggou_title{
 	line-height:2.5rem;
 	margin: 0 auto;
+}
+#mask{
+  width:176px; 
+  height:176px;
+  background:url('../static/img/products_women/p4_big.png');
+ border-radius: 50%;
+
+}
+.p-absolute{
+	position: absolute;
+}
+.d-none{
+	display: none;
+}
+#super-mask{
+  width:95%; 
+  height:85%;
 }
