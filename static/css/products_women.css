@@ -31,23 +31,6 @@
 	width: 1rem;
 	height: 1rem;
 }
-@media screen and (max-width: 991px) {
-	.remai_small{
-		display: flex;
-		justify-content: between;
-	}
-}
-@media screen and (max-width: 767px) {
-	
-	.haixianggou {
-		display: flex !important;
-		justify-content: between !important;
-		flex-wrap: wrap !important;
-	}
-	.haixianggou div{
-		width: 30% !important;
-	}
-}
 .remai_pic{
 	width: 80%;
 	transition: all .3s;
@@ -86,6 +69,7 @@
   width:176px; 
   height:176px;
   background:url('../img/products_women/p4_big.png');
+  background-repeat: no-repeat;
   border-radius: 50%;
 
 }
@@ -96,6 +80,41 @@
 	display: none;
 }
 #super-mask{
-  width:95%; 
-  height:85%;
+  width:100%; 
+  height:77%;
+}
+#size li{
+	
+	border: 2px solid black;
+}
+#color img,#count button,#size li{
+	cursor: pointer;
+}
+.mid-content{
+	width: 70%;
+	margin-right: auto;
+    margin-left: auto;
+}
+@media screen and (max-width: 1400px) {
+	#super-mask{
+  		display: none!important;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.remai_small{
+		display: flex;
+		justify-content: space-around;
+	}
+		
+}
+@media screen and (max-width: 767px) {
+	
+	.haixianggou {
+		display: flex !important;
+		justify-content: between !important;
+		flex-wrap: wrap !important;
+	}
+	.haixianggou div{
+		width: 30% !important;
+	}	
 }

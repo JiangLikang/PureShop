@@ -10,11 +10,6 @@
 .list-item img:hover{
 	transform: scale(0.95);
 }
-@media screen and (max-width: 767px) {
-	.list-item{
-		width: 30%;
-	}
-}
 .page-item{
 	border: 1px solid transparent;
 }
@@ -27,4 +22,18 @@
 	border-left-color: #FE2156 !important;
 	border-right-color: #FE2156 !important;
 }
-
+@media screen and (max-width: 1200px) {
+	.list-item{
+		width: 22%;
+	}
+}
+@media screen and (max-width: 991px) {
+	.list-item{
+		width: 30%;
+	}
+}
+@media screen and (max-width: 767px) {
+	.list-item{
+		width: 40%;
+	}
+}

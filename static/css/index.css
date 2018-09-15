@@ -95,3 +95,15 @@ span:not(#time){
 .mid_content>div:not(.lunbo){
 	width: 85%;
 }
+@media screen and  (max-width: 991px) {
+	.floor-item{
+		width: 40% !important;
+		padding-top: 1rem;
+
+
+	}
+	.floor_content{
+		flex-wrap: wrap;
+	}
+
+}

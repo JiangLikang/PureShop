@@ -24,28 +24,33 @@ CREATE TABLE pureshop_nav(
     parent INT #设置二级菜单
 );
 
-INSERT INTO pureshop_nav VALUES
-(NULL,'首页','/index.html','跳转到网站的首页',NULL),
-(NULL,'男装','/man.html','进入男装',1),
-(NULL,'女装','/women.html','进入女装',1);
-
 /**女装产品**/
 CREATE TABLE pureshop_product_woman(
   wid INT PRIMARY KEY AUTO_INCREMENT,
-  lg VARCHAR(128)             #大图片路径
-  sm1 VARCHAR(128),            #小图片路径
-  sm2 VARCHAR(128),            #小图片路径
-  sm3 VARCHAR(128),            #小图片路径
-  sm4 VARCHAR(128),            #小图片路径
-  sm5 VARCHAR(128),            #小图片路径
-  title VARCHAR(128),         #主标题
-  subtitle VARCHAR(128),      #副标题
+  type VARCHAR(16),           #所属分类 
+  title VARCHAR(128),         #标题
   price DECIMAL(10,2),        #价格
   score DECIMAL(2,1)          #评分
   sold_count INT,             #累积销量
   stock VARCHAR(64),          #库存
-  promise VARCHAR(64),        #服务承诺
-  pname VARCHAR(32),          #商品名称 
+  show VARCHAR(128),          #展示图片路径
+  lg1 VARCHAR(128),           #大图片路径
+  lg2 VARCHAR(128),
+  lg3 VARCHAR(128),
+  lg4 VARCHAR(128),
+  lg5 VARCHAR(128),            
+  md1 VARCHAR(128),          #中图片路径   
+  md2 VARCHAR(128),            
+  md3 VARCHAR(128),            
+  md4 VARCHAR(128),            
+  md5 VARCHAR(128),            
+  sm1 VARCHAR(128),           #小图片路径
+  sm2 VARCHAR(128),            
+  sm3 VARCHAR(128),            
+  sm4 VARCHAR(128),            
+  sm5 VARCHAR(128),
+  xg1 VARCHAR(128),          #效果图
+  xg2 VARCHAR(128)
 );
 
 
@@ -114,15 +119,6 @@ CREATE TABLE pureshop_index_carousel(
   title VARCHAR(64)
 );
 
-/****首页商品****/
-CREATE TABLE pureshop_index_product(
-  pid INT PRIMARY KEY AUTO_INCREMENT,
-  type VARCHAR(16),
-  title VARCHAR(64),
-  pic VARCHAR(128),
-  price DECIMAL(10,2),
-  href VARCHAR(128)
-);
 
 /*******************/
 /******数据导入******/
@@ -144,10 +140,12 @@ INSERT INTO pureshop_index_carousel VALUES
 
 /****首页商品****/
 INSERT INTO pureshop_index_product VALUES
-(NULL,'xianshi','女装秋装胖mm新款藏肉连衣裙洋气套装胖妹妹显瘦两件套','img/index/xianshi1.png',75),
-(NULL,'xianshi','秋季2018新款原宿时尚套装连帽运动卫衣套装女休闲风短款卫衣韩版休闲裤学生显瘦两件套卡麦丝','img/index/xianshi2.png',47),
-(NULL,'xianshi','热卖套装早秋新款中长款无袖吊带连衣裙+长袖宽松显瘦百搭长款毛衣裙子套装','img/index/xianshi3.png',89),
-(NULL,'xianshi','秋季帅气bf女装酷潮衣服原宿风嘻哈少女街拍网红宽松两件套装裤女','img/index/xianshi4.png',79),
+(NULL,'autumn','女装秋装胖mm新款藏肉连衣裙洋气套装胖妹妹显瘦两件套',75,8,855,1000,'img/products_women/autumn1_md1.png','img/products_women/autumn1_lg1.png','img/products_women/autumn1_lg2.png','img/products_women/autumn1_lg3.png','img/products_women/autumn1_lg4.png','img/products_women/autumn1_lg5.png','img/products_women/autumn1_md1.png','img/products_women/autumn1_md2.png','img/products_women/autumn1_md3.png','img/products_women/autumn1_md4.png','img/products_women/autumn1_md5.png','img/products_women/autumn1_sm1.png','img/products_women/autumn1_sm2.png','img/products_women/autumn1_sm3.png','img/products_women/autumn1_sm4.png','img/products_women/autumn1_sm5.png','img/products_women/autumn1_xg1.png','img/products_women/autumn1_xg2.png'),
+(NULL,'autumn','三件套秋季新品韩版文艺清新荷叶边长袖衬衫+马甲毛衣无袖针织背心+高腰休闲牛仔裤时尚套装女',47,5,744,2000,'img/products_women/autumn2_md1.png','img/products_women/autumn2_lg1.png','img/products_women/autumn2_lg2.png','img/products_women/autumn2_lg3.png','img/products_women/autumn2_lg4.png','img/products_women/autumn2_lg5.png','img/products_women/autumn2_md1.png','img/products_women/autumn2_md2.png','img/products_women/autumn2_md3.png','img/products_women/autumn2_md4.png','img/products_women/autumn2_md5.png','img/products_women/autumn2_sm1.png','img/products_women/autumn2_sm2.png','img/products_women/autumn2_sm3.png','img/products_women/autumn2_sm4.png','img/products_women/autumn2_sm5.png','img/products_women/autumn2_xg1.png','img/products_women/autumn2_xg2.png'),
+(NULL,'autumn','秋季帅气bf女装酷潮衣服原宿风嘻哈少女街拍网红宽松两件套装裤女',79,7,344,2000,'img/products_women/autumn3_md1.png','img/products_women/autumn3_lg1.png','img/products_women/autumn3_lg2.png','img/products_women/autumn3_lg3.png','img/products_women/autumn3_lg4.png','img/products_women/autumn3_lg5.png','img/products_women/autumn3_md1.png','img/products_women/autumn3_md2.png','img/products_women/autumn3_md3.png','img/products_women/autumn3_md4.png','img/products_women/autumn3_md5.png','img/products_women/autumn3_sm1.png','img/products_women/autumn3_sm2.png','img/products_women/autumn3_sm3.png','img/products_women/autumn3_sm4.png','img/products_women/autumn3_sm5.png','img/products_women/autumn3_xg1.png','img/products_women/autumn3_xg2.png'),
+(NULL,'autumn','2018秋季新款女装小香风约会网纱裙套装慵懒风毛衣两件套裙',79,7.6,774,3000,'img/products_women/autumn4_md1.png','img/products_women/autumn4_lg1.png','img/products_women/autumn4_lg2.png','img/products_women/autumn4_lg3.png','img/products_women/autumn4_lg4.png','img/products_women/autumn4_lg5.png','img/products_women/autumn4_md1.png','img/products_women/autumn4_md2.png','img/products_women/autumn4_md3.png','img/products_women/autumn4_md4.png','img/products_women/autumn4_md5.png','img/products_women/autumn4_sm1.png','img/products_women/autumn4_sm2.png','img/products_women/autumn4_sm3.png','img/products_women/autumn4_sm4.png','img/products_women/autumn4_sm5.png','img/products_women/autumn4_xg1.png','img/products_women/autumn4_xg2.png'),
+
+
 (NULL,'xianshi','卫衣套装2018女春秋新款韩版宽松连帽学生ulzzang休闲运动两件套装','img/index/xianshi5.png',39)
 
 
