@@ -85,8 +85,8 @@
 #mask{
   width:176px; 
   height:176px;
-  background:url('../static/img/products_women/p4_big.png');
- border-radius: 50%;
+  background:url('../img/products_women/p4_big.png');
+  border-radius: 50%;
 
 }
 .p-absolute{

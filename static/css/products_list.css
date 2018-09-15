@@ -1,0 +1,30 @@
+.list-item{
+	width: 15%;
+}
+.list-item:hover{
+	border: 1px solid #FF5777;
+}
+.list-item img{
+	transition: all .3s;
+}
+.list-item img:hover{
+	transform: scale(0.95);
+}
+@media screen and (max-width: 767px) {
+	.list-item{
+		width: 30%;
+	}
+}
+.page-item{
+	border: 1px solid transparent;
+}
+.page-item.active .page-link{
+	background: #FE2156 !important;
+	border-color: #f5f5f5;
+}
+.page-item:not(.active) a:hover{
+	color: #FE2156 !important;
+	border-left-color: #FE2156 !important;
+	border-right-color: #FE2156 !important;
+}
+

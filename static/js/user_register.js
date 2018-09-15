@@ -1,11 +1,11 @@
-(function(argument) {
+$(function() {
 	// 正则格式检查
 	function vali(selector, reg, msg, e) {
 		var $txt = $(selector);
 		if (reg.test($txt.val())) {
-			$txt.next().html('<img src="../static/img/user_register/ok.png">验证通过！');
+			$txt.next().html('<img src="img/user_register/ok.png">验证通过！');
 		} else {
-			$txt.next().html(`<img src="../static/img/user_register/err.png">${msg}`);
+			$txt.next().html(`<img src="img/user_register/err.png">${msg}`);
 			e.preventDefault();
 		}
 	}
@@ -27,9 +27,9 @@
 	form.check_upwd.onblur = function(e) {
 		var pwd = form.upwd.value;
 		if (this.value != pwd || this.value == '') {
-			$(this).next().html(`<img src="../static/img/user_register/err.png">密码不一致`);
+			$(this).next().html(`<img src="img/user_register/err.png">密码不一致`);
 		} else {
-			$(this).next().html('<img src="../static/img/user_register/ok.png">验证通过！');
+			$(this).next().html('<img src="img/user_register/ok.png">验证通过！');
 		}
 	}
 	form.email.onblur = function(e) {
@@ -51,4 +51,4 @@
 			});
 		}
 	});
-})()
+})

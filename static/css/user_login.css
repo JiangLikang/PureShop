@@ -24,6 +24,6 @@
     }
 }
 .login_bg{
-	background-image: url('../static/img/user_login/background_pic.png');
+	background-image: url('../img/user_login/background_pic.png');
 	background-position: center center;
 }
