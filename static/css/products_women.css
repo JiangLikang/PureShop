@@ -129,6 +129,10 @@
 		
 }
 @media screen and (max-width: 991px) {
+	#mask{
+		width: 176px;
+		height: 176px;
+	}
 	#super-mask{
   		display: block!important;
   		width: 60%;
