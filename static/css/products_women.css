@@ -26,6 +26,12 @@
 .small_pic{
 	width: 100%;
 	height: 100%;
+	opacity: 0.5;
+	border-width: 2px !important;
+	padding: 0px;
+}
+.pic_li:first-child img{
+	opacity: 1;
 }
 .products_logo{
 	width: 1rem;
@@ -71,6 +77,7 @@
   background:url('../img/products_women/p4_big.png');
   background-repeat: no-repeat;
   border-radius: 50%;
+  background-color: #f5f5f5;
 
 }
 .p-absolute{
@@ -80,8 +87,8 @@
 	display: none;
 }
 #super-mask{
-  width:100%; 
-  height:77%;
+	width:100%; 
+	height:77%;
 }
 #size li{
 	
@@ -95,9 +102,18 @@
 	margin-right: auto;
     margin-left: auto;
 }
+@media screen and (max-width: 1500px){
+	.mid-content{
+		width: 80%;
+	}
+}
 @media screen and (max-width: 1400px) {
 	#super-mask{
-  		display: none!important;
+  		height: 75%;
+	}
+	#mask{
+		width: 132px;
+		height: 132px;
 	}
 }
 @media screen and (max-width: 1200px) {
@@ -105,10 +121,19 @@
 		display: flex;
 		justify-content: space-around;
 	}
+	
+	#super-mask{
+  		display: block!important;
+  		height: 83%;
+	}
 		
 }
-@media screen and (max-width: 767px) {
-	
+@media screen and (max-width: 991px) {
+	#super-mask{
+  		display: block!important;
+  		width: 60%;
+  		height: 85%;
+	}
 	.haixianggou {
 		display: flex !important;
 		justify-content: between !important;
@@ -116,5 +141,11 @@
 	}
 	.haixianggou div{
 		width: 30% !important;
-	}	
+	}
+	.show_div{
+		width: 60%;
+	}
+	.small_pic_ul{
+		width: 60%;
+	}
 }

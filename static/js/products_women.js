@@ -4,6 +4,14 @@ $(function() {
 	var $ul = $('.small_pic_ul');
 	var $show_img = $('.show_div>img');
 	$ul.on('mouseover', 'img', function(event) {
+		$('.small_pic_ul img').css({
+			'opacity': 0.5,
+			'border-bottom-color': '#dee2e6'
+		});
+		$(this).css({
+			'opacity': 1,
+			'border-bottom-color': '#EF2F23'
+		});
 		var md = $(this).attr('data-md');
 		$show_img.attr('src', md);
 		$mask.css({
@@ -13,25 +21,41 @@ $(function() {
 	});
 	//放大镜效果
 	var mask_size = $('#mask').width();
-	var $show_div = $('.show_div')
-	var $smask = $('#super-mask')
+	var $smask = $('#super-mask');
 	$smask.hover(function() {
 		$mask.toggleClass('d-none');
-	}).mousemove(function(e) {
-		var top = e.offsetY - mask_size / 2;
-		var left = e.offsetX - mask_size / 2;
-		if (top < 0) {
-			top = 0;
-		}
-		if (left < 0) {
-			left = 0;
-		}
-		$mask.css({
-			left,
-			top,
-			'backgroundPosition': `${-2*left}px ${-2*top}px `
+	})
+
+	function bigView(argument) {
+		$smask.mousemove(function(e) {
+			var top = e.offsetY - mask_size / 2;
+			var left = e.offsetX - mask_size / 2;
+			if (top < 0) {
+				top = 0;
+			}
+			if (left < 0) {
+				left = 0;
+			}
+			$mask.css({
+				left,
+				top,
+				'backgroundPosition': `${-2*left}px ${-2*top}px `,
+				'background-color': '#f5f5f5'
+			});
+
 		});
 
+	}
+	bigView();
+	$(window).resize(function(event) {
+		mask_size = $('#mask').width();
+		bigView();
+		var picWidth = $('.show_div img').width();
+		var picHeight = $('.show_div img').height();
+		$smask.css('width', picWidth);
+		$smask.css('height', picHeight);
+		var smk_left = ($('.show_div').width() - picWidth) / 2;
+		$smask.css('left', smk_left);
 	});
 	//数量按钮效果
 	var $count = $('.count');
