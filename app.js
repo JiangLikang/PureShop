@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const user = require('./routers/user.js');
+const products_women = require('./routers/products_women');
 
 var app = express();
 app.listen(8080);
@@ -18,3 +19,4 @@ app.use(bodyParser.urlencoded({
 //使用路由器来管理所有用户模块下的路由
 //挂载到user下 
 app.use('/user', user);
+app.use('/products_women', products_women);
