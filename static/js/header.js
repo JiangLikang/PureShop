@@ -5,6 +5,12 @@ $(function() {
 		type: 'get',
 		success: function(res) {
 			$(res).replaceAll('#header')
+			// 导航栏传参
+			$('.header_body a:not(.nav_active)').click(function(e) {
+				e.preventDefault();
+				$type = $(this).attr('data-type');
+				location.href = `http://localhost:8080/products_list.html?type=${$type}`
+			});
 			//搜索传参
 			$search = $('#sub');
 			$input = $search.prev();

@@ -11,6 +11,7 @@
 		<!-- myself_css -->
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/index.css">
+		<script src="js/vue.js"></script>
 	</head>
 	<body style="">
 		<!-- 头部 -->
@@ -19,7 +20,7 @@
 		<!-- 主体 -->
 		<div class="container-fluid bg-f5 mid_content" >	
 			<!-- 轮播广告图 -->
-			<div class="container-fluid text-center lunbo"  >
+			<div class="container-fluid text-center lunbo" id="carousel" >
 				<div class="carousel slide carousel-fade" id="mycar" data-ride="carousel" data-interval="5000">
 					<!-- 指示器 -->
 					<ul class="carousel-indicators">
@@ -50,7 +51,7 @@
 			</div>
 			<!-- 限时抢购 -->
 			<div class="container-fluid mt-3">			
-				<div class="row" >
+				<div class="row" id="xianshi">
 					<div class="col-lg-2 bg-dark qianggou d-flex flex-column justify-content-around">
 						<h5 class="pt-4">限时抢购</h5>
 						<span class="time" id="time" >00:00:00</span>
@@ -58,51 +59,20 @@
 					</div>
 					<!-- 限时商品轮播内容 -->
 					<div class="col-lg-10 pt-2 d-flex justify-content-around">			       							
-						<div class="xianshi_item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi7.png" alt="" class="xianshi_img img-thumbnail">
-								<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+						<div v-for='(item,i) in res' class="xianshi_item">
+							<a href="" target="_blank" :data-id='res[i].wid'>
+								<img :src="res[i].md1" alt="" class="xianshi_img img-thumbnail">
+								<p class="content_hide mb-0 text-small xianshi_img">{{res[i].title}}
 								</p>
 							</a>
-							<span>￥59</span>
+							<span>￥{{res[i].price.toFixed(2)}}</span>
 						</div >
-						<div class="xianshi_item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi8.png" alt="" class="xianshi_img img-thumbnail">
-								<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div >
-						<div class="xianshi_item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi4.png" alt="" class="xianshi_img img-thumbnail">
-								<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="xianshi_item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi11.png" alt="" class="xianshi_img img-thumbnail">
-								<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="xianshi_item" >
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi12.png" alt="" class="xianshi_img img-thumbnail">
-								<p class="content_hide mb-0 text-small xianshi_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>																				      
+																										      
 					</div>
 				</div>
 			</div>
 			<!-- 春装推荐 -->
-			<div class="container-fluid pt-4 mt-3">			
+			<div class="container-fluid pt-4 mt-3" id="spring">			
 				<div class="row">
 					<div class="col-xl-2 text-center">
 						<h5>&春装推荐&</h5>
@@ -113,43 +83,20 @@
 						<img src="img/index/spring.png" alt="" class="img-fluid">
 					</div>
 					<div class="col-lg-10 d-flex justify-content-around floor_content " >			       													
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+						<div v-for='(item,i) in res' class="floor-item">
+							<a href="" target="_blank" :data-id='res[i].wid'>
+								<img :src="res[i].md1" alt="" class="tuijian_img img-thumbnail">
+								<p class="content_hide mb-0 text-small tuijian_img">
+									{{res[i].title}}
 								</p>
 							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi1.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>																									      
+							<span>￥{{res[i].price.toFixed(2)}}</span>
+						</div>																							      
 					</div>
 			   </div>
 			</div>
 			<!-- 夏装推荐 -->
-			<div class="container-fluid pt-4 mt-3">			
+			<div class="container-fluid pt-4 mt-3" id="summer">			
 				<div class="row">
 					<div class="col-xl-2 text-center">
 						<h5>&夏装推荐&</h5>
@@ -160,43 +107,21 @@
 						<img src="img/index/summer.png" alt="" class="img-fluid">
 					</div>
 					<div class="col-lg-10 d-flex justify-content-around floor_content" >			       													
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+						<div v-for='(item,i) in res' class="floor-item">
+							<a href="" target="_blank" :data-id='res[i].wid'>
+								<img :src="res[i].md1" alt="" class="tuijian_img img-thumbnail">
+								<p class="content_hide mb-0 text-small tuijian_img">
+									{{res[i].title}}
 								</p>
 							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi1.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>																									      
+							<span>￥{{res[i].price.toFixed(2)}}</span>
+						</div>	
+																														      
 					</div>
 			   </div>
 			</div>
 			<!-- 秋装推荐 -->
-			<div class="container-fluid pt-4 mt-3">			
+			<div class="container-fluid pt-4 mt-3" id="autumn">			
 				<div class="row">
 					<div class="col-xl-2 text-center">
 						<h5>&秋装推荐&</h5>
@@ -207,43 +132,20 @@
 						<img src="img/index/autumn.png" alt="" class="img-fluid">
 					</div>
 					<div class="col-lg-10 d-flex justify-content-around floor_content" >			       													
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+						<div v-for='(item,i) in res' class="floor-item">
+							<a href="" target="_blank" :data-id='res[i].wid'>
+								<img :src="res[i].md1" alt="" class="tuijian_img img-thumbnail">
+								<p class="content_hide mb-0 text-small tuijian_img">
+									{{res[i].title}}
 								</p>
 							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi1.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
+							<span>￥{{res[i].price.toFixed(2)}}</span>
 						</div>																									      
 					</div>
 			   </div>
 			</div>
 			<!-- 冬装推荐 -->
-			<div class="container-fluid pt-4 mt-3 pb-5">			
+			<div class="container-fluid pt-4 mt-3 pb-5" id="winter">			
 				<div class="row">
 					<div class="col-xl-2 text-center">
 						<h5>&冬装推荐&</h5>
@@ -254,37 +156,14 @@
 						<img src="img/index/winter.png" alt="" class="img-fluid">
 					</div>
 					<div class="col-lg-10 d-flex justify-content-around floor_content" >			       													
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi2.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
+						<div v-for='(item,i) in res' class="floor-item">
+							<a href="" target="_blank" :data-id='res[i].wid'>
+								<img :src="res[i].md1" alt="" class="tuijian_img img-thumbnail">
+								<p class="content_hide mb-0 text-small tuijian_img">
+									{{res[i].title}}
 								</p>
 							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi3.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi1.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
-						</div>
-						<div class="floor-item">
-							<a href="products_women.html" target="_blank">
-								<img src="img/index/xianshi5.png" alt="" class="tuijian_img img-thumbnail">
-								<p class="content_hide mb-0 text-small tuijian_img">2018短袖夏季新款短袖t恤女纯棉宽松韩版百搭ins上衣服
-								</p>
-							</a>
-							<span>￥59</span>
+							<span>￥{{res[i].price.toFixed(2)}}</span>
 						</div>																									      
 					</div>
 			   </div>

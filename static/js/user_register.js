@@ -16,7 +16,7 @@ $(function() {
 	}
 
 	form.user_name.onblur = function(e) {
-		vali(this, /[0-9\u4e00-\u9fa5]{3,9}/, '昵称必须介于3-9个字符之间', e);
+		vali(this, /([0-9\u4e00-\u9fa5]|\w){3,9}/, '昵称必须介于3-9个字符之间', e);
 	}
 	form.gender.onblur = function(e) {
 		vali(this, /^(男|女)$/, '格式错误', e);

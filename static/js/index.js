@@ -1,5 +1,102 @@
-// 限时抢购模块功能
-(function(argument) {
+$(function() {
+	var pro = new Promise((open) => {
+			$.ajax({
+				url: 'http://localhost:8080/index/spring',
+				type: 'get',
+				dataType: 'json',
+				success: function(res) {
+					new Vue({
+						el: "#spring",
+						data: {
+							res
+						}
+
+
+					})
+
+
+					open();
+				}
+			})
+		})
+		.then((open) => {
+			$.ajax({
+				url: 'http://localhost:8080/index/summer',
+				type: 'get',
+				dataType: 'json',
+				success: function(res) {
+					new Vue({
+						el: "#summer",
+						data: {
+							res
+						}
+
+
+					})
+
+				}
+			})
+		})
+		.then((open) => {
+			$.ajax({
+				url: 'http://localhost:8080/index/autumn',
+				type: 'get',
+				dataType: 'json',
+				success: function(res) {
+					new Vue({
+						el: "#autumn",
+						data: {
+							res
+						}
+
+
+					})
+
+				}
+			})
+		})
+		.then((open) => {
+			$.ajax({
+				url: 'http://localhost:8080/index/winter',
+				type: 'get',
+				dataType: 'json',
+				success: function(res) {
+					new Vue({
+						el: "#winter",
+						data: {
+							res
+						}
+
+
+					})
+
+				}
+			})
+		})
+		.then((open) => {
+			$.ajax({
+				url: 'http://localhost:8080/index/xianshi',
+				type: 'get',
+				dataType: 'json',
+				success: function(res) {
+					new Vue({
+						el: "#xianshi",
+						data: {
+							res
+						}
+
+
+					})
+					$('.mid_content:not(first-child) a').click(function(e) {
+						e.preventDefault();
+						$id = $(this).attr('data-id');
+						location.href = `http://localhost:8080/products_women.html?wid=${$id}`
+					});
+				}
+			})
+		})
+
+	// 限时抢购模块功能
 	//计时函数
 	function task() {
 		var end = new Date("2019/09/7 10:31:00");
@@ -26,4 +123,4 @@
 	//防止第一秒跳帧
 	task();
 	var time = setInterval(task, 1000);
-})();
+})
