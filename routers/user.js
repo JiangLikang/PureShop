@@ -18,7 +18,9 @@ router.post('/register', (req, res) => {
 	for (var key in obj) {
 		if (obj[key] == '') {
 			res.send('信息不能有空缺！')
+			return;
 		}
+
 	}
 	pool.query(sql, [uname, upwd, email, phone, user_name, gender], (err, result) => {
 		if (err) {

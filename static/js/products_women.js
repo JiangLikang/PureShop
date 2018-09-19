@@ -73,6 +73,18 @@ $(function() {
 									res
 								}
 							})
+							// 店内搜索
+							var $search = $('#inshopSub');
+							var $input = $search.prev();
+							$search.click(function() {
+								location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}`
+
+							});
+							$input.keyup(function(e) {
+								if (e.keyCode == 13) {
+									$search.click();
+								}
+							})
 							$('#remai a').click(function(e) {
 								e.preventDefault();
 								$id = $(this).attr('data-id');

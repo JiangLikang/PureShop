@@ -12,8 +12,8 @@ $(function() {
 				location.href = `http://localhost:8080/products_list.html?type=${$type}`
 			});
 			//搜索传参
-			$search = $('#sub');
-			$input = $search.prev();
+			var $search = $('#sub');
+			var $input = $search.prev();
 			$search.click(function() {
 				location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}`
 

@@ -63,9 +63,17 @@
 }
 .similar_item{
 	width: 30%;
+	border: 1px solid transparent;
+}
+.similar_item:hover{
+	border: 1px solid #FF5777;
 }
 .haixianggou_item{
-	width: 60%
+	width: 60%;
+	border: 1px solid transparent;
+}
+.haixianggou_item:hover{
+	border: 1px solid #FF5777;
 }
 .haixianggou_title{
 	line-height:2.5rem;
@@ -101,6 +109,9 @@
 	width: 70%;
 	margin-right: auto;
     margin-left: auto;
+}
+#inshopSub:hover{
+	cursor: pointer;
 }
 @media screen and (max-width: 1500px){
 	.mid-content{
