@@ -22,12 +22,17 @@ router.post('/register', (req, res) => {
 		}
 
 	}
+	if (gender == '男') {
+		gender = 1
+	} else {
+		gender = 0
+	}
 	pool.query(sql, [uname, upwd, email, phone, user_name, gender], (err, result) => {
 		if (err) {
 			throw err;
 		}
 		if (result.affectedRows > 0) {
-			res.send(`<script>alert('注册成功');location.href='http://localhost:3000/01-login.html'</script>`);
+			res.send(`<script>alert('注册成功');location.href='http://localhost:8080/user_login.html'</script>`);
 		} else {
 			res.send('注册异常');
 		}
@@ -48,12 +53,12 @@ router.post('/login', (req, res) => {
 			throw err;
 		}
 		if (result.length > 0) {
-			pool.query(sql2, upwd, (err, result) => {
+			pool.query(sql2, upwd, (err, result2) => {
 				if (err) {
 					throw err;
 				}
 				if (result.length > 0) {
-					res.send('登录成功！');
+					res.send(`<script>alert('登录成功！');location.href='http://localhost:8080/index.html?user=${result2[0].uname}'</script>`);
 				} else {
 					res.send('密码错误');
 				}

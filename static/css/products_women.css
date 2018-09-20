@@ -80,8 +80,7 @@
 	margin: 0 auto;
 }
 #mask{
-  width:176px; 
-  height:176px;
+
   background:url('../img/products_women/p4_big.png');
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -122,10 +121,6 @@
 	#super-mask{
   		height: 75%;
 	}
-	#mask{
-		width: 132px;
-		height: 132px;
-	}
 }
 @media screen and (max-width: 1200px) {
 	.remai_small{
@@ -140,10 +135,7 @@
 		
 }
 @media screen and (max-width: 991px) {
-	#mask{
-		width: 176px;
-		height: 176px;
-	}
+	
 	#super-mask{
   		display: block!important;
   		width: 60%;

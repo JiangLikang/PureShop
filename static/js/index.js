@@ -90,7 +90,14 @@ $(function() {
 					$('.mid_content:not(first-child) a').click(function(e) {
 						e.preventDefault();
 						$id = $(this).attr('data-id');
-						location.href = `http://localhost:8080/products_women.html?wid=${$id}`
+						// if (location.search.indexOf('user=' != -1)) {
+						// 	var user = location.search.split('=')[1];
+						// 	location.href = `http://localhost:8080/products_women.html?user=${user}&wid=${$id}`
+						// } else {
+							location.href = `http://localhost:8080/products_women.html?wid=${$id}`
+					// 	window.event.returnValue = false;
+					// }
+
 					});
 				}
 			})

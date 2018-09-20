@@ -122,8 +122,10 @@ $(function() {
 								});
 							});
 							//放大镜效果
-							var mask_size = $('#mask').width();
 							var $smask = $('#super-mask');
+							$mask.width($smask.width() * 0.376);
+							$mask.height($mask.width());
+							var mask_size = $('#mask').width();
 							$smask.hover(function() {
 								$mask.toggleClass('d-none');
 							})
@@ -141,7 +143,7 @@ $(function() {
 									$mask.css({
 										left,
 										top,
-										'backgroundPosition': `${-2.8*left}px ${-2.8*top}px `,
+										'backgroundPosition': `${-(832/$show_img.width())*left}px ${-(1248/$show_img.height())*top}px `,
 										'background-color': '#f5f5f5'
 									});
 
@@ -150,14 +152,17 @@ $(function() {
 							}
 							bigView();
 							$(window).resize(function(event) {
-								mask_size = $('#mask').width();
-								bigView();
 								var picWidth = $('.show_div img').width();
 								var picHeight = $('.show_div img').height();
 								$smask.css('width', picWidth);
 								$smask.css('height', picHeight);
 								var smk_left = ($('.show_div').width() - picWidth) / 2;
 								$smask.css('left', smk_left);
+
+								$mask.width($smask.width() * 0.376);
+								$mask.height($mask.width());
+								mask_size = $('#mask').width();
+								bigView();
 							});
 							//数量按钮效果
 							var $count = $('.count');
