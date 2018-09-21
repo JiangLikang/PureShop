@@ -43,12 +43,13 @@ router.get('/winter', (req, res) => {
 })
 
 router.get('/xianshi', (req, res) => {
-	var sql = `SELECT * FROM pureshop_product_woman WHERE type='xianshi'`;
-	pool.query(sql, [], (err, result) => {
+	var season = req.query.season;
+	var sql = `SELECT * FROM pureshop_product_woman WHERE type=?`;
+	pool.query(sql, [season], (err, result) => {
 		if (err) {
 			console.log(err)
 		}
-		res.send(result);
+		res.send(result.slice(-5));
 	})
 })
 

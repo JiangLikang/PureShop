@@ -74,9 +74,25 @@ $(function() {
 			})
 		})
 		.then((open) => {
+			//判断当下季节
+			var time = new Date();
+			var month = parseInt(time.getMonth() + 1);
+			var season = '';
+			if (month > 2 && month < 6) {
+				season = 'spring';
+			} else if (month > 5 && month < 9) {
+				season = 'summer';
+			} else if (month > 8 && month < 12) {
+				season = 'autumn';
+			} else {
+				season = 'winter';
+			}
 			$.ajax({
 				url: 'http://localhost:8080/index/xianshi',
 				type: 'get',
+				data: {
+					season
+				},
 				dataType: 'json',
 				success: function(res) {
 					new Vue({
@@ -94,9 +110,9 @@ $(function() {
 						// 	var user = location.search.split('=')[1];
 						// 	location.href = `http://localhost:8080/products_women.html?user=${user}&wid=${$id}`
 						// } else {
-							location.href = `http://localhost:8080/products_women.html?wid=${$id}`
-					// 	window.event.returnValue = false;
-					// }
+						location.href = `http://localhost:8080/products_women.html?wid=${$id}`
+						// 	window.event.returnValue = false;
+						// }
 
 					});
 				}
