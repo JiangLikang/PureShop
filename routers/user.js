@@ -6,7 +6,7 @@ var router = express.Router();
 //用户注册
 router.post('/register', (req, res) => {
 	var obj = req.body;
-	var sql = 'insert into pureshop_user (uname,upwd,email,phone,user_name,gender) values(?,?,?,?,?,?)';
+	var sql = 'INSERT INTO pureshop_user (uname,upwd,email,phone,user_name,gender) VALUES(?,md5(?),?,?,?,?)';
 	var {
 		uname,
 		upwd,
@@ -46,8 +46,8 @@ router.post('/login', (req, res) => {
 		uname,
 		upwd
 	} = req.body;
-	var sql = 'select * from pureshop_user where uname=?';
-	var sql2 = 'select * from pureshop_user where upwd=?';
+	var sql = 'SELECT * FROM pureshop_user WHERE uname=?';
+	var sql2 = 'SELECT * FROM pureshop_user WHERE upwd=md5(?)';
 	pool.query(sql, uname, (err, result) => {
 		if (err) {
 			throw err;
