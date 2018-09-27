@@ -4,14 +4,14 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Page Title</title>
+		<title>纯纯购商品</title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- myself_css -->
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/products_list.css">
-		<script src="js/vue.js"></script>
+
 	</head>
 	<body style="">
 		<!-- 头部 -->
@@ -19,33 +19,29 @@
 		</header>
 		<!-- 主体 -->
 		<hr class="mt-0 line-pink">
-		<div class="container-fluid mb-2" style="width: 80%" >			
-			<div class="row m-0 pb-3 d-flex justify-content-around" id="pros">				
+		<div class="container-fluid mb-2" style="width: 80%" id="pros">			
+			<div class="row m-0 pb-3 d-flex justify-content-around" >				
 				<div v-for='(item,i) in res' class="mt-3 list-item" >
-					<a href="" target="_blank" :data-id='res[i].wid'>
+					<a href="" target="_blank" :data-id='res[i].wid' @click.prevent='item_click(res[i].wid)'>
 						<img :src="res[i].md1" alt=""class=" img-thumbnail">
 					
-					    <p  class=" text-small pt-1 mb-0 content_hide">{{res[i].title}}</p>
+					    <p  class=" text-smpageCount pt-1 mb-0 content_hide">{{res[i].title}}</p>
 					</a>
 					￥{{res[i].price}}&nbsp;
 					<img src="img/products_detail/heart.png" alt="" >
 					&nbsp;566
-				</div>
+				</div> 				
 			</div>						
-			<div class="title p-2">						
+			<div class="title p-2 ">				
 				<ul class="pagination mb-0 justify-content-end">
-					<li class="page-item disabled page">
+					<li class="page-item  page" :class="{disabled:cur<=1}">
 						<a href="#" aria-label="Previous" class="page-link bg-transparent ">
 							<span aria-hidden="true">上一页</span>
 							<span class="sr-only">Previous</span>
 						</a>
 					</li>
-					<li class="page-item active page"><a href="#" class="page-link  ">1</a></li>
-					<li class="page-item page"><a href="#" class="page-link bg-transparent ">2</a></li>
-					<li class="page-item page"><a href="#" class="page-link bg-transparent ">3</a></li>
-					<li class="page-item page"><a href="#" class="page-link bg-transparent ">4</a></li>
-					<li class="page-item page"><a href="#" class="page-link bg-transparent ">5</a></li>
-					<li class="page-item page">
+					<li class="page-item page" v-for="n in pageCount" :class="{active:cur == n}"><a href="#" class="page-link bg-transparent " @click.prevent='page_click(n)' >{{n}}</a></li>
+					<li class="page-item page" :class="{disabled:cur>=pageCount}">
 						<a href="#" aria-label="Previous" class="page-link bg-transparent ">
 							<span aria-hidden="true">下一页</span>
 							<span class="sr-only">Previous</span>
@@ -62,6 +58,8 @@
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>

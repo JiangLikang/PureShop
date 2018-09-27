@@ -6,13 +6,18 @@ const user = require('./routers/user.js');
 const products_women = require('./routers/products_women');
 const index = require('./routers/index');
 const products_list = require('./routers/products_list');
+const session = require('express-session');
 
 var app = express();
 app.listen(8080);
 
 //托管静态资源
 app.use(express.static('./static'));
-
+app.use(session({
+	secret: '随机字符串',
+	resave: false,
+	saveUninitialized: true
+}))
 //配置body-parser
 app.use(bodyParser.urlencoded({
 	extended: false

@@ -9,13 +9,13 @@ $(function() {
 			$('.header_body a:not(.nav_active)').click(function(e) {
 				e.preventDefault();
 				$type = $(this).attr('data-type');
-				location.href = `http://localhost:8080/products_list.html?type=${$type}`
+				location.href = `http://localhost:8080/products_list.html?type=${$type}&pno=1`
 			});
 			//搜索传参
 			var $search = $('#sub');
 			var $input = $search.prev();
 			$search.click(function() {
-				location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}`
+				location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}&pno=1`
 
 			});
 			$input.keyup(function(e) {
