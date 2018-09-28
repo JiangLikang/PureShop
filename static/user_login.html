@@ -26,9 +26,9 @@
 				<h4 style="color:#FF5670 ;">用户登录</h4>
 				<hr>
 				<form action="/user/login" method="post" class="w-75" style="margin: 0px auto;">
-					<input type="text" name="uname" placeholder="请输入用户名" class="login_input form-control mt-2">
-					<input type="password" name="upwd" placeholder="请输入密码" class="login_input form-control mt-3">
-					<input type="submit" value="登录" onclick="user_check()" class="form-control login_input text-white mt-3" style="background: #FF5670;" id="sub">
+					<input type="text" name="uname" placeholder="请输入用户名" class="login_input form-control mt-2" v-model='uname'>
+					<input type="password" name="upwd" placeholder="请输入密码" class="login_input form-control mt-3" v-model='upwd'>
+					<input type="button" value="登录"  class="form-control login_input text-white mt-3" style="background: #FF5670;" id="sub" @click='login()'>
 				</form>					
 				<div class="w-75 pt-3 d-flex justify-content-end" style="margin: 0px auto;">
 					<a href="user_register.html" target="_blank" class="text-muted  login_input w-25">注册</a>
@@ -44,6 +44,9 @@
 		
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/qs.min.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>

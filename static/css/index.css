@@ -105,5 +105,10 @@ span:not(#time){
 	.floor_content{
 		flex-wrap: wrap;
 	}
-
+	
+}
+@media screen and (max-width: 767px) {
+	.xianshi_item{
+		width: 40% !important;
+	}
 }

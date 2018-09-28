@@ -79,6 +79,22 @@ $(function() {
 					this.cur = n
 				}
 				location.href = changeURLArg(location.href, 'pno', n);
+			},
+			pre_click: function() {
+				if (this.cur > 1) {
+					this.cur--;
+				} else {
+					return;
+				}
+				location.href = changeURLArg(location.href, 'pno', this.cur);
+			},
+			nex_click: function() {
+				if (this.cur < this.pageCount) {
+					this.cur++;
+				} else {
+					return;
+				}
+				location.href = changeURLArg(location.href, 'pno', this.cur);
 			}
 
 		}

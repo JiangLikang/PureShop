@@ -58,155 +58,50 @@ router.post('/login', (req, res) => {
 					throw err;
 				}
 				if (result.length > 0) {
-					res.send(`<script>alert('登录成功！');location.href='http://localhost:8080/index.html?user=${result2[0].uname}'</script>`);
+					req.session.uid = result[0].uid;
+					// res.send(`<script>alert('登录成功！');location.href='http://localhost:8080/index.html?user=${result2[0].uname}'</script>`);
+					res.send({
+						ok: 1,
+						msg: '登录成功！'
+					})
 				} else {
-					res.send('密码错误');
+					res.send({
+						ok: 0,
+						msg: '密码错误'
+					});
 				}
 			});
 
 		} else {
-			res.send('用户名不存在');
+			res.send({
+				ok: 0,
+				msg: '用户名不存在'
+			});
 		}
 	});
 });
 
-//用户删除
-router.get('/delete', (req, res) => {
-	var obj = req.query;
-	var $id = obj.uid;
-	if (!$id) {
-		res.send({
-			code: 400,
-			msg: 'id require'
-		});
-		return;
+router.get('/isLogin', (req, res) => {
+	if (req.session.uid !== undefined) {
+		var uid = req.session.uid;
+		var sql = 'SELECT * FROM pureshop_user WHERE uid=?';
+		pool.query(sql, [uid], (err, result) => {
+			if (err) throw err;
+			res.send({
+				ok: 1,
+				uname: result[0].uname
+			})
+		})
 	} else {
-		var sql = 'DELETE FROM pureshop_user WHERE uid=?';
-		pool.query(sql, $id, (err, result) => {
-			if (err) {
-				throw err;
-			}
-			if (result.affectedRows > 0) {
-				res.send({
-					code: 100,
-					msg: 'delete already'
-				});
-			} else {
-				res.send({
-					code: 404,
-					msg: 'no this id'
-				});
-			}
-
-		});
-	}
-
-});
-
-//用户检索
-router.get('/query', (req, res) => {
-	var $uid = req.query.uid;
-	if (!$uid) {
 		res.send({
-			code: 402,
-			msg: 'uid require'
-		});
-		return;
+			ok: 0
+		})
 	}
-	var sql = 'SELECT * FROM pureshop_user WHERE uid=?';
-	pool.query(sql, $uid, (err, result) => {
-		if (result.length > 0) {
-			res.send(result);
-		} else {
-			res.send('user doesn`t exist');
-		}
+})
 
-	});
-});
-
-//用户修改：编号uid，姓名user_name，性别gender，邮箱email，电话phone
-router.post('/update', (req, res) => {
-	var obj = req.body;
-	var $uid = obj.uid;
-	var $user_name = obj.user_name;
-	var $gender = obj.gender;
-	var $email = obj.email;
-	var $phone = obj.phone;
-	if (!$uid) {
-		res.send({
-			code: 401,
-			msg: "uid require"
-		});
-		return;
-	}
-	if (!$user_name) {
-		res.send({
-			code: 402,
-			msg: "user_name require"
-		});
-		return;
-	}
-	if (!$gender) {
-		res.send({
-			code: 403,
-			msg: "gender require"
-		});
-		return;
-	}
-	if (!$email) {
-		res.send({
-			code: 404,
-			msg: "email require"
-		});
-		return;
-	}
-	if (!$phone) {
-		res.send({
-			code: 405,
-			msg: "phone require"
-		});
-		return;
-	}
-	var sql = 'UPDATE pureshop_user SET user_name=?,gender=?,email=?,phone=? WHERE uid=?';
-	pool.query(sql, [$user_name, $gender, $email, $phone, $uid], (err, result) => {
-		if (err) {
-			throw err;
-		}
-		if (result.affectedRows > 0) {
-			res.send({
-				code: 200,
-				msg: 'update,success'
-			});
-		} else {
-			res.send({
-				code: 301,
-				msg: 'update err'
-			});
-		}
-	});
-
-});
-
-//浏览用户列表
-router.get('/list', (req, res) => {
-	var obj = req.query;
-	var size = parseInt(obj.size); //客户端数据默认传过来是字符型
-	var page = parseInt(obj.page);
-	if (!size) {
-		size = 2;
-	}
-	if (!page) {
-		page = 1;
-	}
-	var begin = (page - 1) * size; //必须放在if判空后面
-	var sql = 'SELECT * FROM pureshop_user LIMIT ?,?'; ///此处必须是数值型
-	pool.query(sql, [begin, size], (err, result) => {
-		if (err) {
-			throw err;
-		}
-		res.send(result);
-	});
-
-});
+router.get('/signout', (req, res) => {
+	req.session.uid = undefined;
+	res.send();
+})
 //导出路由器
 module.exports = router;

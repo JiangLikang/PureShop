@@ -14,8 +14,9 @@
 			<div class="col-lg-4 col-md-12 pr-0 pt-2">
 				<nav class="navbar navbar-expand-sm pr-0 pt-2">						
 					<div id="navgroup" class="">
-						<ul class="nav  flex-wrap " style="font-size: 0.7rem;">
-							<li class="nav-item"><a href="user_login.html" class="nav-link header_top_a" target="_blank">登录</a></li>
+						<ul class="nav  flex-wrap " style="font-size: 0.7rem;" id="login">
+							<li class="nav-item"  v-if='!isLogin'><a href="user_login.html" class="nav-link header_top_a" target="_blank">登录</a></li>
+							<li class="nav-item" v-else><a href="user_login.html" class="nav-link header_top_a" target="_blank" style="display: inline">{{uname}}</a><a href="#" @click.prevent="signout()" class="nav-link header_top_a" style="display: inline">退出</a></li>
 							<li class="nav-item"><a href="" class="nav-link header_top_a ">我的订单</a></li>
 							<li class="nav-item"><a href="" class="nav-link header_top_a ">购物车</a></li>
 							<li class="nav-item"><a href="" class="nav-link header_top_a ">客服服务</a></li>

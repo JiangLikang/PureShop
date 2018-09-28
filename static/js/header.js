@@ -23,6 +23,35 @@ $(function() {
 					$search.click();
 				}
 			})
+			new Vue({
+				el: '#login',
+				data() {
+					return {
+						isLogin: false,
+						uname: ''
+					}
+				},
+				mounted() {
+					(async function(self) {
+						var res = await axios.get("http://localhost:8080/user/islogin");
+						if (res.data.ok == 1) {
+							self.isLogin = true;
+							self.uname = res.data.uname;
+						} else {
+							self.isLogin = false;
+						}
+					})(this);
+
+				},
+				methods: {
+					signout: async function() {
+
+						var res = await axios.get("http://localhost:8080/user/signout");
+						location.href = 'http://localhost:8080/index.html';
+
+					}
+				}
+			})
 
 		}
 	})

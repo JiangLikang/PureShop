@@ -2,11 +2,11 @@
 //使用express来构建服务器
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const user = require('./routers/user.js');
 const products_women = require('./routers/products_women');
 const index = require('./routers/index');
 const products_list = require('./routers/products_list');
-const session = require('express-session');
 
 var app = express();
 app.listen(8080);

@@ -34,14 +34,14 @@
 			</div>						
 			<div class="title p-2 ">				
 				<ul class="pagination mb-0 justify-content-end">
-					<li class="page-item  page" :class="{disabled:cur<=1}">
+					<li class="page-item  page" :class="{disabled:cur<=1}" @click.prevent='pre_click()'>
 						<a href="#" aria-label="Previous" class="page-link bg-transparent ">
 							<span aria-hidden="true">上一页</span>
 							<span class="sr-only">Previous</span>
 						</a>
 					</li>
 					<li class="page-item page" v-for="n in pageCount" :class="{active:cur == n}"><a href="#" class="page-link bg-transparent " @click.prevent='page_click(n)' >{{n}}</a></li>
-					<li class="page-item page" :class="{disabled:cur>=pageCount}">
+					<li class="page-item page" :class="{disabled:cur>=pageCount}" @click.prevent='nex_click()'>
 						<a href="#" aria-label="Previous" class="page-link bg-transparent ">
 							<span aria-hidden="true">下一页</span>
 							<span class="sr-only">Previous</span>

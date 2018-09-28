@@ -11,7 +11,7 @@
 		<!-- myself_css -->
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/index.css">
-		<script src="js/vue.js"></script>
+
 	</head>
 	<body style="">
 		<!-- 头部 -->
@@ -58,7 +58,7 @@
 						<p>每日整点更新</p>
 					</div>
 					<!-- 限时商品轮播内容 -->
-					<div class="col-lg-10 pt-2 d-flex justify-content-around">			       							
+					<div class="col-lg-10 pt-2 d-flex justify-content-around floor_content">			       							
 						<div v-for='(item,i) in res' class="xianshi_item">
 							<a href="" target="_blank" :data-id='res[i].wid'>
 								<img :src="res[i].md1" alt="" class="xianshi_img img-thumbnail">
@@ -173,7 +173,8 @@
 		<footer id="footer">
 		</footer>
 		
-
+		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="js/jquery.min.js"></script>
