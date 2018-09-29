@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/products_women.css">
 		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
 	</head>
 	<body style="">
 		<!-- 头部 -->
@@ -45,7 +46,7 @@
 					</div>
 					<div class="alert alert-secondary ">
 						<div>
-							<b class="text-small text-muted ">现价：</b><span class="price2 pr-5">￥{{res[0].price.toFixed(2)}}</span>
+							<b class="text-small text-muted ">现价：</b><span class="price2 ">￥{{res[0].price.toFixed(2)}}</span>&nbsp;<span class="pr-5 old_price"><b>￥{{(res[0].price+50).toFixed(2)}}</b></span>
 							<span class="d-inline-block text-small">评分：{{res[0].score}} &nbsp;累积销量：{{res[0].sold_count}}</span>
 						</div>
 					</div>
@@ -170,8 +171,22 @@
 							<img :src="res[0].xg2" alt="" class="img-fluid img-thumbnail mt-3">
 							
 						</div>
-						<div class="tab-pane" id="comment">
-							<textarea name="" id="" cols="20" rows="5"placeholder="请亲在此评论~" class="w-100"></textarea>
+						<div class="tab-pane p-1" id="comment">
+							<h6 class="font-weight-bold p-2 pt-4 mb-0">发表评论</h6>
+							<hr>
+							<textarea name="" id="" cols="20" rows="5"placeholder="请亲在此评论~(不超过120字)" class="w-100 mt-3" maxlength="120" v-model='content'></textarea>
+							<button class="btn btn-danger" @click='cmt_send()'>发表评论</button>
+							<hr class="mt-3">
+							<div class="cmt-list mt-3">
+								<div class="cmt-list-item p-1" v-for='(item,i) in list'>
+									<div class="cmt-title">
+										第{{i+1}}楼&nbsp;&nbsp;用户：{{item.uname}} 发表时间：{{item.ctime}}
+									</div>
+									<div class="cmt-body">
+										{{item.content}}
+									</div>
+								</div>
+							</div>
 					    </div>
 						<div class="tab-pane" id="similar" v-cloak>
 							<h6 class="font-weight-bold p-2 pt-4 mb-0">本店同类商品</h6>
@@ -220,6 +235,7 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/qs.min.js"></script>
 		<!-- myself_js -->
 		<script src="js/header.js"></script>
 		<script src="js/footer.js"></script>

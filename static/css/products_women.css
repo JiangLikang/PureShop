@@ -112,6 +112,26 @@
 #inshopSub:hover{
 	cursor: pointer;
 }
+.old_price{
+	text-decoration: line-through;
+	font-size: 1rem;
+}
+.cmt-list{
+	margin: 15px 0px;
+}
+.cmt-title{
+	line-height: 30px;
+	color: #969696;
+}
+.cmt-body{
+	line-height: 30px;
+}
+.cmt-list-item{
+	border: 1px solid #969696;
+}
+#comment hr{
+	margin: 0px;
+}
 @media screen and (max-width: 1500px){
 	.mid-content{
 		width: 80%;

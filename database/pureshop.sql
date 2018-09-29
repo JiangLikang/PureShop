@@ -118,6 +118,15 @@ CREATE TABLE pureshop_index_carousel(
   img VARCHAR(128),
   title VARCHAR(64)
 );
+/****用户评论****/
+CREATE TABLE user_comments(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  wid       INT,
+  ctime     DATETIME,
+  content   VARCHAR(50),
+  uname  VARCHAR(25),
+  isdel     INT
+);
 
 
 /*******************/

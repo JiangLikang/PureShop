@@ -45,6 +45,7 @@ $(function() {
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
+							// var haixianggou = res
 							new Vue({
 								el: "#haixianggou",
 								data: {
@@ -70,7 +71,34 @@ $(function() {
 							new Vue({
 								el: "#details",
 								data: {
-									res
+									res,
+									wid: wid,
+									content: '',
+									list: []
+								},
+								methods: {
+									cmt_send: async function() {
+										var res = await axios.post('http://localhost:8080/user/addComments', Qs.stringify({
+											wid: this.wid,
+											content: this.content
+										}))
+										if (res.data.ok == -1) {
+											alert(res.data.msg)
+										} else if (res.data.ok == 0) {
+											alert(res.data.msg)
+										} else if (res.data.ok == 1) {
+											this.content = '';
+											this.get_comments_list();
+											alert(res.data.msg);
+										}
+									},
+									get_comments_list: async function() {
+										var res = await axios.get('http://localhost:8080/user/commentsList?wid=' + this.wid)
+										this.list = res.data;
+									}
+								},
+								mounted() {
+									this.get_comments_list();
 								}
 							})
 							// 店内搜索

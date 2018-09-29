@@ -59,6 +59,7 @@ router.post('/login', (req, res) => {
 				}
 				if (result.length > 0) {
 					req.session.uid = result[0].uid;
+					req.session.uname = result[0].uname;
 					// res.send(`<script>alert('登录成功！');location.href='http://localhost:8080/index.html?user=${result2[0].uname}'</script>`);
 					res.send({
 						ok: 1,
@@ -102,6 +103,57 @@ router.get('/isLogin', (req, res) => {
 router.get('/signout', (req, res) => {
 	req.session.uid = undefined;
 	res.send();
+})
+
+router.post('/addComments', (req, res) => {
+	var wid = req.body.wid;
+	var content = req.body.content;
+	var progress = 0;
+	if (req.session.uid !== undefined) {
+		var uname = req.session.uname;
+		if (content.length < 2) {
+			res.send({
+				ok: 0,
+				msg: "亲，评论的内容太少了"
+			})
+			return;
+		}
+		var sql = 'INSERT INTO `user_comments`(`id`, `wid`, `ctime`, `content`, `uname`, `isdel`) VALUES (NULL,?,now(),?,?,0)';
+		pool.query(sql, [wid, content, uname], (err, result) => {
+			if (err) {
+				throw err;
+			}
+			if (result.affectedRows == 1) {
+				res.send({
+					ok: 1,
+					msg: '评论成功！'
+				})
+			} else {
+				res.send({
+					ok: 0,
+					msg: '评论失败了。。。T.T'
+				})
+			}
+		})
+	} else {
+		res.send({
+			ok: -1,
+			msg: '亲，您还没有登录哦'
+		})
+	}
+})
+
+router.get('/commentsList', (req, res) => {
+	var wid = req.query.wid;
+	var sql = 'SELECT * FROM user_comments WHERE wid=?';
+	pool.query(sql, [wid], (err, result) => {
+		if (err) {
+			throw err;
+		}
+		result.reverse();
+		res.send(result);
+	})
+
 })
 //导出路由器
 module.exports = router;
