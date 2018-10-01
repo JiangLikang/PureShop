@@ -11,6 +11,8 @@
 		<!-- myself_css -->
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/products_women.css">
+		<link rel="stylesheet" href="css/sweetalert.css">
+		<script src="js/sweetalert.min.js"></script>
 		<script src="js/vue.js"></script>
 		<script src="js/axios.min.js"></script>
 	</head>
@@ -55,28 +57,28 @@
 					</div>
 					<div class="text-muted pt-3 mt-3 " id="color">						
 						<b class="mr-1">颜色:</b>						
-						<img :src="res[0].sm1" alt="" class="color_pic img-thumbnail">
-						<img :src="res[0].sm2" alt="" class="color_pic img-thumbnail">
+						<img :src="res[0].sm1" alt="" class="color_pic img-thumbnail" @click="get_color(res[0].sm1)">
+						<img :src="res[0].sm2" alt="" class="color_pic img-thumbnail" @click="get_color(res[0].sm2)">
 					</div>
 					<div class="d-flex pt-3 mt-3" id="size">
 						<b class="text-muted mr-2">尺码:</b>
 						<ol class="list-unstyled d-flex" >
-							<li class="size_li mr-2">S</li>
-							<li class="size_li mr-2">M</li>
-							<li class="size_li mr-2">L</li>
+							<li class="size_li mr-2" @click="get_size('S')">S</li>
+							<li class="size_li mr-2" @click="get_size('M')">M</li>
+							<li class="size_li mr-2" @click="get_size('L')">L</li>
 						</ol>
 						<span class="text-muted text-small pt-2">库存{{res[0].stock}}件</span>
 					</div>
 					<div class="d-flex  w-50  pt-3" id="count">
 						<b class="text-muted mr-2">数量:</b>
-						<button class="count_btn mr-2">-</button>
-						<input type="text" class="count mr-2" value="1">
-						<button class="count_btn">+</button>
+						<button class="count_btn mr-2" @click='btn_down()' :class="{cwhite:count == 1}">-</button>
+						<input type="text" class="count mr-2" :value="count">
+						<button class="count_btn" @click='btn_up()'>+</button>
 					</div>
 					<div class="d-flex mt-3 justify-content-start pt-3">
-						<a href="" class="btn btn-danger mr-2" style="background: #EF2F23;">立即购买</a>
-						<a href="" class="btn btn-danger mr-2" style="text-align: center;background: #EF2F23;">加入购物车</a>
-						<a href="" class="btn btn-danger" style="background: #EF2F23;">收藏</a>
+						<button  class="btn  mr-2 btn-red">立即购买</button>
+						<button  class="btn  mr-2 btn-red" @click='add_to_cart()'>加入购物车</button>
+						<button  class="btn  btn-red" >收藏</button>
 					</div>
 					<div class="text-small text-muted pt-3 mt-3">
 						<b>服务承诺：</b> 
@@ -117,7 +119,7 @@
 					</div>
 					<div class=" input-group pt-4 pb-2 pl-3 pr-3">
 						<input type="text" placeholder="更多好货" class="form-control search">
-						<input type="submit" class="search_btn pl-2 pr-2" style="background: #EF2F23;" value="店内搜索" id='inshopSub'>
+						<input type="submit" class="search_btn pl-2 pr-2 btn-red" value="店内搜索" id='inshopSub'>
 
 				    </div>				
 				</div>
@@ -175,12 +177,13 @@
 							<h6 class="font-weight-bold p-2 pt-4 mb-0">发表评论</h6>
 							<hr>
 							<textarea name="" id="" cols="20" rows="5"placeholder="请亲在此评论~(不超过120字)" class="w-100 mt-3" maxlength="120" v-model='content'></textarea>
-							<button class="btn btn-danger" @click='cmt_send()'>发表评论</button>
+							<button class="btn btn-red" @click='cmt_send()'>发表评论</button>
 							<hr class="mt-3">
 							<div class="cmt-list mt-3">
-								<div class="cmt-list-item p-1" v-for='(item,i) in list'>
-									<div class="cmt-title">
-										第{{i+1}}楼&nbsp;&nbsp;用户：{{item.uname}} 发表时间：{{item.ctime}}
+								<div class="cmt-list-item p-1 mt-1" v-for='(item,i) in list'>
+									<div class="cmt-title d-flex justify-content-between">
+										<span>用户：{{item.uname}}</span>
+										<span>发表时间：{{item.ctime|dateFormat}}</span> 
 									</div>
 									<div class="cmt-body">
 										{{item.content}}

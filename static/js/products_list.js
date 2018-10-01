@@ -39,7 +39,6 @@ $(function() {
 		return url + '\n' + arg + '\n' + arg_val;
 	}
 
-
 	// console.log(changeURLArg('http://www.daimajiayuan.com/test.php?class_id=3&id=2', 'class_id', 4));
 
 	new Vue({
@@ -66,8 +65,18 @@ $(function() {
 						}
 					})
 				}
-				self.res = res.data.pros;
-				self.pageCount = res.data.pageCount;
+				if (res.data.ok == 1) {
+					self.res = res.data.pros;
+					self.pageCount = res.data.pageCount;
+				} else {
+					// alert('搜索关键词不能为空。。。。T.T')
+					swal(
+						'',
+						'搜索关键词不能为空。。。。T.T',
+						'error'
+					);
+					self.location = document.referrer;
+				}
 			})(this);
 		},
 		methods: {

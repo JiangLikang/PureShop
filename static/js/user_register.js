@@ -43,12 +43,63 @@ $(function() {
 		var isChecked = $('.checkbox').prop('checked');
 		if (isChecked == false) {
 			e.preventDefault();
-
-			$('.alert').addClass('in');
-
-			$('.alert>.close').click(function(event) {
-				$(this).parent().removeClass('in');
-			});
+			swal({
+				title: "",
+				text: "亲，必须同意条款哦！",
+				icon: "error",
+				button: {
+					text: "确定",
+					value: true
+				}
+			})
 		}
 	});
+	// new Vue({
+	// 	el: "#form",
+	// 	data: {
+	// 		uname: '',
+	// 		upwd: '',
+	// 		email: '',
+	// 		phone: '',
+	// 		user_name: '',
+	// 		gender: ''
+	// 	},
+	// 	methods: {
+	// 		send_form: async function() {
+	// 			var res = axios.post('http://localhost:8080/user/register', Qs.stringify({
+	// 				uname: this.uname,
+	// 				upwd: this.upwd,
+	// 				email: this.email,
+	// 				phone: this.phone,
+	// 				user_name: this.user_name,
+	// 				gender: this.gender
+	// 			})).then((res) => {
+	// 				if (res.data.ok == 1) {
+	// 					swal({
+	// 						title: "",
+	// 						text: "注册成功！",
+	// 						icon: "success",
+	// 						button: {
+	// 							text: "确定",
+	// 							value: true
+	// 						}
+	// 					}).then(function(value) {
+	// 						if (value) {
+
+	// 							self.location = document.referrer;
+	// 						}
+	// 					})
+	// 				} else {
+	// 					swal(
+	// 						'',
+	// 						res.data.msg,
+	// 						'error'
+	// 					);
+	// 				}
+	// 			})
+	// 		}
+	// 	}
+
+	// })
+
 })

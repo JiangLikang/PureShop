@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>纯纯购商品</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- myself_css -->
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/my_cart.css">
+		<script src="js/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="css/sweetalert.css">
+
+	</head>
+	<body style="">
+		<!-- 头部 -->
+		<header id="header">
+		</header>
+		<!-- 主体 -->
+		<hr class="mt-0 line-pink">
+		<div class="cart-list " id="cart-list">
+			<div class="row bg-f5 cart-title p-1">
+				<div class="w-1 ">
+					<span class="title-span"><b>购物车</b></span>
+				</div>
+				<div class="w-6">
+					
+				</div>
+				<div class="w-1">
+					商品信息
+				</div>
+				<div class="w-1">
+					单价(元)
+				</div>
+				<div class="w-1">
+					数量
+				</div>
+				<div class="w-1">
+					小计(元)
+				</div>
+				<div class="w-1">
+					操作
+				</div>
+			</div>
+			<div class=" row cart-item mt-2 ml-0 mr-0" v-for='(item,i) in list'>
+				<div class="w-1">
+					<img :src="list[i].img" alt="">
+				</div>
+				<div class="w-6 mt-1">
+					<p><a href="">{{list[i].title}}</a></p>
+				</div>
+				<div class="w-1 mt-1">
+					颜色：<img :src="list[i].color" alt="" class="color">
+					<br>尺码：<span>{{list[i].size}}</span>
+				</div>
+				<div class="w-1 text-center mt-1">
+
+					<p class="old-price">{{list[i].oldP}}</p>
+					<p class="now-price"><b>{{list[i].nowP}}</b></p>
+				</div>
+				<div class="w-1 mt-1">
+					<div class="d-flex" id="count">
+						<button class="count_btn ">-</button>
+						<input type="text" class="count " :value="list[i].count">
+						<button class="count_btn">+</button>
+					</div>
+				</div>
+				<div class="w-1 text-center mt-1">
+					<p class="item-price-add ">{{list[i].nowP*list[i].count}}</p>
+				</div>
+				<div class="w-1 text-center mt-1">
+					<p><a href="">删除</a></p>
+					<input type="checkbox" class="checkbox">
+				</div>
+				
+			</div>
+			<div class="row cart-foot bg-f5 mt-2 mb-3 p-1 d-flex justify-content-end">
+				<span class="mt-1 mr-2">共计{{list.length}}件商品</span>
+				<span class="pt-1 mr-2"><b>总计</b>：￥</span>
+				<a class="btn btn-primary pay">去付款>></a>
+			</div>
+		</div>
+		
+		<!-- 底部 -->
+		<footer id="footer">			
+		</footer>
+		
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!-- myself_js -->
+		<script src="js/header.js"></script>
+		<script src="js/footer.js"></script>
+		<script src="js/my_cart.js"></script>
+	</body>
+</html>

@@ -1,17 +1,3 @@
-// function user_check() {
-// 	var xhr = create_xhr();
-// 	xhr.onreadystatechange = function() {
-// 		if (xhr.readyState == 4 && xhr.status == 200) {
-// 			var result = xhr.responseText;
-// 			alert(result);
-// 		}
-// 	};
-// 	var uname = $('uname').value;
-// 	var upwd = $('upwd').value;
-// 	xhr.open('post', '/user/login', true);
-// 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //必须放在open后面
-// 	xhr.send('uname=' + uname + '&upwd=' + upwd);
-// }
 (function() {
 	new Vue({
 		el: "#login",
@@ -31,10 +17,34 @@
 					upwd: this.upwd
 				}));
 				if (res.data.ok == 1) {
-					alert(res.data.msg);
-					location.href = 'http://localhost:8080/index.html';
+					// alert(res.data.msg);
+					// location.href = 'http://localhost:8080/index.html';
+					swal({
+						title: "",
+						text: "登录成功！",
+						icon: "success",
+						button: {
+							text: "确定",
+							value: true
+						}
+					}).then(function(value) {
+						if (value) {
+
+							self.location = document.referrer;
+						}
+					})
+
 				} else {
-					alert(res.data.msg);
+					// alert(res.data.msg);
+					swal({
+						title: "",
+						text: res.data.msg,
+						icon: "error",
+						button: {
+							text: "确定",
+							value: true
+						}
+					})
 				}
 
 			}

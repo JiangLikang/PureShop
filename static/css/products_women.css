@@ -128,9 +128,26 @@
 }
 .cmt-list-item{
 	border: 1px solid #969696;
+	border-radius: 4px;
 }
 #comment hr{
 	margin: 0px;
+}
+.btn-red{
+	background: #EF2F23;
+	color: white;
+}
+.btn-red:hover{
+	background: #EF2F23;
+}
+.btn-red:active{
+	background: #EF2F23 !important;
+}
+textarea{
+	border-radius: 4px;
+}
+.cwhite{
+	color: white;
 }
 @media screen and (max-width: 1500px){
 	.mid-content{

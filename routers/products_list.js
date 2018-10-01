@@ -34,6 +34,7 @@ router.get('/season', (req, res) => {
 		}
 		obj.pageCount = Math.ceil(result[0].c / pageSize);
 		progress += 50;
+		obj.ok = 1
 		if (progress == 100) {
 			res.send(obj);
 		}
@@ -53,6 +54,11 @@ router.get('/search', (req, res) => {
 	};
 	var progress = 0;
 	var sql = `SELECT * FROM pureshop_product_woman WHERE title LIKE '%${keyword}%' LIMIT ?,?`;
+	if (keyword == '') {
+		obj.ok = -1;
+		res.send(obj);
+		return;
+	}
 	pool.query(sql, [offset, pageSize], (err, result) => {
 		if (err) {
 			console.log(err)
@@ -69,6 +75,7 @@ router.get('/search', (req, res) => {
 			throw err;
 		}
 		obj.pageCount = Math.ceil(result[0].c / pageSize);
+		obj.ok = 1;
 		progress += 50;
 		if (progress == 100) {
 			res.send(obj);

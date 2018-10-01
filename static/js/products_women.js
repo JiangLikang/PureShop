@@ -74,7 +74,10 @@ $(function() {
 									res,
 									wid: wid,
 									content: '',
-									list: []
+									list: [],
+									size: '',
+									color: '',
+									count: 1
 								},
 								methods: {
 									cmt_send: async function() {
@@ -83,29 +86,123 @@ $(function() {
 											content: this.content
 										}))
 										if (res.data.ok == -1) {
-											alert(res.data.msg)
+											swal({
+												title: "",
+												text: res.data.msg,
+												icon: "error",
+												button: {
+													text: "确定",
+													value: true
+												}
+											})
 										} else if (res.data.ok == 0) {
-											alert(res.data.msg)
+											swal({
+												title: "",
+												text: res.data.msg,
+												icon: "error",
+												button: {
+													text: "确定",
+													value: true
+												}
+											})
 										} else if (res.data.ok == 1) {
 											this.content = '';
 											this.get_comments_list();
-											alert(res.data.msg);
+											swal({
+												title: "",
+												text: res.data.msg,
+												icon: "success",
+												button: {
+													text: "确定",
+													value: true
+												}
+											})
 										}
 									},
 									get_comments_list: async function() {
 										var res = await axios.get('http://localhost:8080/user/commentsList?wid=' + this.wid)
 										this.list = res.data;
+									},
+									add_to_cart: async function() {
+										var res = await axios.get('http://localhost:8080/user/addToCart', {
+											params: {
+												wid: this.wid,
+												img: this.res[0].show_pic,
+												title: this.res[0].title,
+												oldP: this.res[0].price + 50,
+												nowP: this.res[0].price,
+												size: this.size,
+												color: this.color,
+												count: this.count,
+											}
+										})
+										if (res.data.ok == 1) {
+											swal({
+												title: "",
+												text: res.data.msg,
+												icon: "success",
+												buttons: {
+													button1: {
+														text: "留在本页",
+														value: true
+													},
+													button2: {
+														text: '进入购物车',
+														value: false
+													}
+												}
+
+											}).then(function(value) {
+												if (value) {
+
+												} else {
+													location.href = 'http://localhost:8080/my_cart.html'
+												}
+
+											})
+										} else {
+											swal({
+												title: "",
+												text: res.data.msg,
+												icon: "error",
+												button: {
+													text: "确定",
+													value: true
+												}
+
+
+											})
+										}
+									},
+									get_size(size) {
+										this.size = size;
+									},
+									get_color(color) {
+										this.color = color;
+									},
+									btn_up() {
+										this.count++;
+									},
+									btn_down() {
+										if (this.count > 1) {
+											this.count--;
+										}
 									}
 								},
 								mounted() {
 									this.get_comments_list();
+								},
+								filters: {
+									dateFormat: function(datestr, pattern = 'YYYY-MM-DD') {
+										return new Date(datestr).toLocaleString();
+									}
 								}
 							})
 							// 店内搜索
 							var $search = $('#inshopSub');
 							var $input = $search.prev();
 							$search.click(function() {
-								location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}`
+								location.href = `http://localhost:8080/products_list.html?keyword=${$input.val().trim()}&pno=1`
 
 							});
 							$input.keyup(function(e) {
@@ -193,26 +290,26 @@ $(function() {
 								bigView();
 							});
 							//数量按钮效果
-							var $count = $('.count');
-							$count.prev().css('color', 'white');
-							$count.next().click(function() {
-								$count.attr('value', parseInt($count.val()) + 1);
-								if ($count.val() < 2) {
-									$count.prev().css('color', 'white');
-								} else {
-									$count.prev().css('color', 'black');
-								}
-							});
-							$count.prev().click(function() {
-								if ($count.val() > 1) {
-									$count.attr('value', parseInt($count.val()) - 1);
-								}
-								if ($count.val() < 2) {
-									$count.prev().css('color', 'white');
-								} else {
-									$count.prev().css('color', 'black');
-								}
-							});
+							// var $count = $('.count');
+							// $count.prev().css('color', 'white');
+							// $count.next().click(function() {
+							// 	$count.attr('value', parseInt($count.val()) + 1);
+							// 	if ($count.val() < 2) {
+							// 		$count.prev().css('color', 'white');
+							// 	} else {
+							// 		$count.prev().css('color', 'black');
+							// 	}
+							// });
+							// $count.prev().click(function() {
+							// 	if ($count.val() > 1) {
+							// 		$count.attr('value', parseInt($count.val()) - 1);
+							// 	}
+							// 	if ($count.val() < 2) {
+							// 		$count.prev().css('color', 'white');
+							// 	} else {
+							// 		$count.prev().css('color', 'black');
+							// 	}
+							// });
 							//颜色选择
 							var $color = $('#color>img');
 							$color.click(function() {

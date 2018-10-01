@@ -85,9 +85,15 @@ CREATE TABLE pureshop_receiver_address(
 
 /**购物车条目**/
 CREATE TABLE pureshop_shoppingcart(
-  iid INT PRIMARY KEY AUTO_INCREMENT,
-  user_id INT,      #用户编号
-  product_id INT,   #商品编号
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT,      #用户编号
+  wid INT,   #商品编号
+  img VARCHAR(64),    #商品图片
+  title VARCHAR(64), #商品标题
+  color VARCHAR(64), #颜色
+  size  VARCHAR(4), #尺寸
+  oldP  DECIMAL(8,2),#原价
+  nowP  DECIMAL(8,2),#现价
   count INT,        #购买数量
   is_checked BOOLEAN #是否已勾选，确定购买
 );
