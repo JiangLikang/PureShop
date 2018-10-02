@@ -12,13 +12,13 @@
 				// var params = new URLSearchParams();
 				// params.append('uname', this.uname);
 				// params.append('upwd', this.upwd);
-				var res = await axios.post('http://localhost:5050/user/login', Qs.stringify({
+				var res = await axios.post('http://pureshop.applinzi.com/user/login', Qs.stringify({
 					uname: this.uname,
 					upwd: this.upwd
 				}));
 				if (res.data.ok == 1) {
 					// alert(res.data.msg);
-					// location.href = 'http://localhost:5050/index.html';
+					// location.href = 'http://pureshop.applinzi.com/index.html';
 					swal({
 						title: "",
 						text: "登录成功！",

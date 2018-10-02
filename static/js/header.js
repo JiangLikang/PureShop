@@ -9,13 +9,13 @@ $(function() {
 			$('.header_body a:not(.nav_active)').click(function(e) {
 				e.preventDefault();
 				$type = $(this).attr('data-type');
-				location.href = `http://localhost:5050/products_list.html?type=${$type}&pno=1`
+				location.href = `http://pureshop.applinzi.com/products_list.html?type=${$type}&pno=1`
 			});
 			//搜索传参
 			var $search = $('#sub');
 			var $input = $search.prev();
 			$search.click(function() {
-				location.href = `http://localhost:5050/products_list.html?keyword=${$input.val().trim()}&pno=1`
+				location.href = `http://pureshop.applinzi.com/products_list.html?keyword=${$input.val().trim()}&pno=1`
 
 			});
 			$input.keyup(function(e) {
@@ -33,7 +33,7 @@ $(function() {
 				},
 				mounted() {
 					(async function(self) {
-						var res = await axios.get("http://localhost:5050/user/islogin");
+						var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
 						if (res.data.ok == 1) {
 							self.isLogin = true;
 							self.uname = res.data.uname;
@@ -46,8 +46,8 @@ $(function() {
 				methods: {
 					signout: async function() {
 
-						var res = await axios.get("http://localhost:5050/user/signout");
-						location.href = 'http://localhost:5050/index.html';
+						var res = await axios.get("http://pureshop.applinzi.com/user/signout");
+						location.href = 'http://pureshop.applinzi.com/index.html';
 
 					}
 				}

@@ -4,7 +4,7 @@ $(function() {
 
 			var pro = new Promise((open) => {
 					$.ajax({
-						url: 'http://localhost:5050/products_women/remai',
+						url: 'http://pureshop.applinzi.com/products_women/remai',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -23,7 +23,7 @@ $(function() {
 				})
 				.then((open) => {
 					$.ajax({
-						url: 'http://localhost:5050/products_women/similar',
+						url: 'http://pureshop.applinzi.com/products_women/similar',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -41,7 +41,7 @@ $(function() {
 				})
 				.then((open) => {
 					$.ajax({
-						url: 'http://localhost:5050/products_women/haixianggou',
+						url: 'http://pureshop.applinzi.com/products_women/haixianggou',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -61,7 +61,7 @@ $(function() {
 				.then((open) => {
 					var wid = location.search.split('=')[1];
 					$.ajax({
-						url: 'http://localhost:5050/products_women/details',
+						url: 'http://pureshop.applinzi.com/products_women/details',
 						type: 'get',
 						dataType: 'json',
 						data: {
@@ -81,7 +81,7 @@ $(function() {
 								},
 								methods: {
 									cmt_send: async function() {
-										var res = await axios.post('http://localhost:5050/user/addComments', Qs.stringify({
+										var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
 											wid: this.wid,
 											content: this.content
 										}))
@@ -120,11 +120,11 @@ $(function() {
 										}
 									},
 									get_comments_list: async function() {
-										var res = await axios.get('http://localhost:5050/user/commentsList?wid=' + this.wid)
+										var res = await axios.get('http://pureshop.applinzi.com/user/commentsList?wid=' + this.wid)
 										this.list = res.data;
 									},
 									add_to_cart: async function() {
-										var res = await axios.get('http://localhost:5050/user/addToCart', {
+										var res = await axios.get('http://pureshop.applinzi.com/user/addToCart', {
 											params: {
 												wid: this.wid,
 												img: this.res[0].show_pic,
@@ -156,7 +156,7 @@ $(function() {
 												if (value) {
 
 												} else {
-													location.href = 'http://localhost:5050/my_cart.html'
+													location.href = 'http://pureshop.applinzi.com/my_cart.html'
 												}
 
 											})
@@ -202,7 +202,7 @@ $(function() {
 							var $search = $('#inshopSub');
 							var $input = $search.prev();
 							$search.click(function() {
-								location.href = `http://localhost:5050/products_list.html?keyword=${$input.val().trim()}&pno=1`
+								location.href = `http://pureshop.applinzi.com/products_list.html?keyword=${$input.val().trim()}&pno=1`
 
 							});
 							$input.keyup(function(e) {
@@ -213,17 +213,17 @@ $(function() {
 							$('#remai a').click(function(e) {
 								e.preventDefault();
 								$id = $(this).attr('data-id');
-								location.href = `http://localhost:5050/products_women.html?wid=${$id}`
+								location.href = `http://pureshop.applinzi.com/products_women.html?wid=${$id}`
 							});
 							$('#similar a').click(function(e) {
 								e.preventDefault();
 								$id = $(this).attr('data-id');
-								location.href = `http://localhost:5050/products_women.html?wid=${$id}`
+								location.href = `http://pureshop.applinzi.com/products_women.html?wid=${$id}`
 							});
 							$('#haixianggou a').click(function(e) {
 								e.preventDefault();
 								$id = $(this).attr('data-id');
-								location.href = `http://localhost:5050/products_women.html?wid=${$id}`
+								location.href = `http://pureshop.applinzi.com/products_women.html?wid=${$id}`
 							});
 							//切换显示的图片
 							var $mask = $('#mask');

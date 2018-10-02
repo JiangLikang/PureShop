@@ -7,7 +7,7 @@ $(function() {
 		},
 		methods: {
 			getCartList: async function() {
-				var res = await axios.get('http://localhost:5050/user/getCart')
+				var res = await axios.get('http://pureshop.applinzi.com/user/getCart')
 				if (res.data.ok == 1) {
 					this.list = res.data.msg;
 					this.total = this.getSubTotal(this.list);
@@ -53,7 +53,7 @@ $(function() {
 				// 	}
 				// }).then(async function(value) {
 				// if (value) {
-				var res = await axios.get('http://localhost:5050/user/delCartItem', {
+				var res = await axios.get('http://pureshop.applinzi.com/user/delCartItem', {
 					params: {
 						cid: cid
 					}
@@ -88,7 +88,7 @@ $(function() {
 
 			},
 			go_detail(wid) {
-				location.href = 'http://localhost:5050/products_women.html?wid=' + wid
+				location.href = 'http://pureshop.applinzi.com/products_women.html?wid=' + wid
 			}
 		},
 		created() {
