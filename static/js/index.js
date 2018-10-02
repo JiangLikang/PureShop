@@ -1,7 +1,7 @@
 $(function() {
 	var pro = new Promise((open) => {
 			$.ajax({
-				url: 'http://localhost:8080/index/spring',
+				url: 'http://localhost:5050/index/spring',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -21,7 +21,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://localhost:8080/index/summer',
+				url: 'http://localhost:5050/index/summer',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -39,7 +39,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://localhost:8080/index/autumn',
+				url: 'http://localhost:5050/index/autumn',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -57,7 +57,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://localhost:8080/index/winter',
+				url: 'http://localhost:5050/index/winter',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -88,7 +88,7 @@ $(function() {
 				season = 'winter';
 			}
 			$.ajax({
-				url: 'http://localhost:8080/index/xianshi',
+				url: 'http://localhost:5050/index/xianshi',
 				type: 'get',
 				data: {
 					season
@@ -108,9 +108,9 @@ $(function() {
 						$id = $(this).attr('data-id');
 						// if (location.search.indexOf('user=' != -1)) {
 						// 	var user = location.search.split('=')[1];
-						// 	location.href = `http://localhost:8080/products_women.html?user=${user}&wid=${$id}`
+						// 	location.href = `http://localhost:5050/products_women.html?user=${user}&wid=${$id}`
 						// } else {
-						location.href = `http://localhost:8080/products_women.html?wid=${$id}`
+						location.href = `http://localhost:5050/products_women.html?wid=${$id}`
 						// 	window.event.returnValue = false;
 						// }
 

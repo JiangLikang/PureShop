@@ -66,7 +66,7 @@ $(function() {
 	// 	},
 	// 	methods: {
 	// 		send_form: async function() {
-	// 			var res = axios.post('http://localhost:8080/user/register', Qs.stringify({
+	// 			var res = axios.post('http://localhost:5050/user/register', Qs.stringify({
 	// 				uname: this.uname,
 	// 				upwd: this.upwd,
 	// 				email: this.email,

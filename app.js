@@ -9,7 +9,7 @@ const index = require('./routers/index');
 const products_list = require('./routers/products_list');
 
 var app = express();
-app.listen(8080);
+app.listen(5050);
 
 //托管静态资源
 app.use(express.static('./static'));
