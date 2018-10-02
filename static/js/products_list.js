@@ -70,11 +70,15 @@ $(function() {
 					self.pageCount = res.data.pageCount;
 				} else {
 					// alert('搜索关键词不能为空。。。。T.T')
-					swal(
-						'',
-						'搜索关键词不能为空。。。。T.T',
-						'error'
-					);
+					swal({
+						title: "",
+						text: '搜索关键词不能为空。。。。T.T',
+						icon: "error",
+						button: {
+							text: "确定",
+							value: true
+						}
+					})
 					self.location = document.referrer;
 				}
 			})(this);

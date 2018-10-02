@@ -39,6 +39,7 @@
 .count{
 	width: 1.5rem;
 	text-align: center;
+	border-radius: 2px;
 }
 .count_btn{
 	background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
@@ -49,6 +50,7 @@
 	border: 0px;
 	border: 1px solid #BDBEC3;
 	cursor: pointer;
+	border-radius: 2px;
 }
 
 .bg-f5{
@@ -105,4 +107,10 @@ a:hover{
 }
 [v-cloak]{
 	display: none;
+}
+.cwhite{
+	color: white;
+}
+.cpointer{
+	cursor: pointer;
 }

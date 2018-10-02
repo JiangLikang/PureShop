@@ -146,9 +146,6 @@
 textarea{
 	border-radius: 4px;
 }
-.cwhite{
-	color: white;
-}
 @media screen and (max-width: 1500px){
 	.mid-content{
 		width: 80%;

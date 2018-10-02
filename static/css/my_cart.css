@@ -65,3 +65,10 @@
 .cart-title div{
 	height: 30px;
 }
+.del{
+	cursor: pointer;
+
+}
+.del:hover{
+	text-decoration: underline;
+}

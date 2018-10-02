@@ -21,7 +21,7 @@
 		</header>
 		<!-- 主体 -->
 		<hr class="mt-0 line-pink">
-		<div class="cart-list " id="cart-list">
+		<div class="cart-list " id="cart-list" >
 			<div class="row bg-f5 cart-title p-1">
 				<div class="w-1 ">
 					<span class="title-span"><b>购物车</b></span>
@@ -45,12 +45,15 @@
 					操作
 				</div>
 			</div>
-			<div class=" row cart-item mt-2 ml-0 mr-0" v-for='(item,i) in list'>
+			<div v-if='list.length==0'>
+				<h1 class="text-center mb-4 mt-4">购物车里还没有商品，快去选购吧~</h1>
+			</div>
+			<div class=" row cart-item mt-2 ml-0 mr-0" v-for='(item,i) in list' v-else v-cloak>
 				<div class="w-1">
-					<img :src="list[i].img" alt="">
+					<a href="" @click.prevent='go_detail(list[i].wid)'><img :src="list[i].img" alt=""></a>
 				</div>
 				<div class="w-6 mt-1">
-					<p><a href="">{{list[i].title}}</a></p>
+					<p><a href="" @click.prevent='go_detail(list[i].wid)'>{{list[i].title}}</a></p>
 				</div>
 				<div class="w-1 mt-1">
 					颜色：<img :src="list[i].color" alt="" class="color">
@@ -63,23 +66,23 @@
 				</div>
 				<div class="w-1 mt-1">
 					<div class="d-flex" id="count">
-						<button class="count_btn ">-</button>
+						<button class="count_btn " @click='count_down(i)' :class='{cwhite:list[i].count==1}'>-</button>
 						<input type="text" class="count " :value="list[i].count">
-						<button class="count_btn">+</button>
+						<button class="count_btn" @click='count_up(i)'>+</button>
 					</div>
 				</div>
 				<div class="w-1 text-center mt-1">
 					<p class="item-price-add ">{{list[i].nowP*list[i].count}}</p>
 				</div>
 				<div class="w-1 text-center mt-1">
-					<p><a href="">删除</a></p>
+					<p @click='del_item(list[i].cid)' class="del">删除</p>
 					<input type="checkbox" class="checkbox">
 				</div>
 				
 			</div>
 			<div class="row cart-foot bg-f5 mt-2 mb-3 p-1 d-flex justify-content-end">
-				<span class="mt-1 mr-2">共计{{list.length}}件商品</span>
-				<span class="pt-1 mr-2"><b>总计</b>：￥</span>
+				<span class="mt-1 mr-4">共计{{list.length}}件商品</span>
+				<span class="pt-1 mr-4"><b>总计</b>：￥{{total}}</span>
 				<a class="btn btn-primary pay">去付款>></a>
 			</div>
 		</div>

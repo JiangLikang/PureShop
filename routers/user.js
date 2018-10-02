@@ -258,5 +258,26 @@ router.get('/getCart', (req, res) => {
 		})
 	}
 })
+
+router.get('/delCartItem', (req, res) => {
+	var cid = req.query.cid;
+	var sql = 'DELETE FROM `pureshop_shoppingcart` WHERE cid=?';
+	pool.query(sql, cid, (err, result) => {
+		if (err) {
+			throw err
+		}
+		if (result.affectedRows > 0) {
+			res.send({
+				ok: 1,
+				msg: '删除成功！'
+			})
+		} else {
+			res.send({
+				ok: 0,
+				msg: '删除失败T.T'
+			})
+		}
+	})
+})
 //导出路由器
 module.exports = router;
