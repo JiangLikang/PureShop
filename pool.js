@@ -4,8 +4,7 @@ var pool = mysql.createPool({
 	host: 'w.rdc.sae.sina.com.cn',
 	user: 'root',
 	passward: '123456',
-	database: 'pureshop',
-	connectionLimit: 10
+	database: 'app_pureshop',
 });
 //导出连接数据库
 module.exports = pool;

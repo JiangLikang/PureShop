@@ -1,7 +1,7 @@
-SET NAMES UTF8;
-DROP DATABASE IF EXISTS pureshop;
-CREATE DATABASE pureshop CHARSET=UTF8;
-USE pureshop;
+-- SET NAMES UTF8;
+-- DROP DATABASE IF EXISTS app_pureshop;
+-- CREATE DATABASE app_pureshop CHARSET=UTF8;
+-- USE pureshop;
 #网站基本信息表
 CREATE TABLE pureshop_web_info(
   web_name VARCHAR(16),
