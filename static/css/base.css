@@ -39,7 +39,7 @@
 .count{
 	width: 1.5rem;
 	text-align: center;
-	border-radius: 2px;
+	/* border-radius: 2px; */
 }
 .count_btn{
 	background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
