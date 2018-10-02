@@ -24,6 +24,6 @@
   "author": "jiangjiang",
   "license": "ISC",
   "scripts": {
-    "start": "app.js"
+    "start": "node app.js"
   }
 }
