@@ -23,5 +23,8 @@
     "url": "https://git.sinacloud.com/pureshop"
   },
   "author": "jiangjiang",
-  "license": "ISC"
+  "license": "ISC",
+  "script": {
+    "start": "app.js"
+  }
 }
