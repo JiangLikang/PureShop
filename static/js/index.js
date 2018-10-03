@@ -3,7 +3,7 @@ $(function() {
 			$.ajax({
 				url: 'http://pureshop.applinzi.com/index/spring',
 				type: 'get',
-				dataType: 'json',
+				dataType: 'jsonp',
 				success: function(res) {
 					new Vue({
 						el: "#spring",
@@ -23,7 +23,7 @@ $(function() {
 			$.ajax({
 				url: 'http://pureshop.applinzi.com/index/summer',
 				type: 'get',
-				dataType: 'json',
+				dataType: 'jsonp',
 				success: function(res) {
 					new Vue({
 						el: "#summer",
@@ -41,7 +41,7 @@ $(function() {
 			$.ajax({
 				url: 'http://pureshop.applinzi.com/index/autumn',
 				type: 'get',
-				dataType: 'json',
+				dataType: 'jsonp',
 				success: function(res) {
 					new Vue({
 						el: "#autumn",
@@ -59,7 +59,7 @@ $(function() {
 			$.ajax({
 				url: 'http://pureshop.applinzi.com/index/winter',
 				type: 'get',
-				dataType: 'json',
+				dataType: 'jsonp',
 				success: function(res) {
 					new Vue({
 						el: "#winter",
@@ -93,7 +93,7 @@ $(function() {
 				data: {
 					season
 				},
-				dataType: 'json',
+				dataType: 'jsonp',
 				success: function(res) {
 					new Vue({
 						el: "#xianshi",
