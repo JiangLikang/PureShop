@@ -33,7 +33,7 @@ $(function() {
 				},
 				mounted() {
 					(async function(self) {
-						var res = await axios.get("http://www.pureshop.applinzi.com/user/islogin");
+						var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
 						if (res.data.ok == 1) {
 							self.isLogin = true;
 							self.uname = res.data.uname;
@@ -46,7 +46,7 @@ $(function() {
 				methods: {
 					signout: async function() {
 
-						var res = await axios.get("http://www.pureshop.applinzi.com/user/signout");
+						var res = await axios.get("http://pureshop.applinzi.com/user/signout");
 						location.href = 'http://pureshop.applinzi.com/index.html';
 
 					}
