@@ -1,7 +1,7 @@
 $(function() {
 	var pro = new Promise((open) => {
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/spring',
+				url: 'http://w.rdc.sae.sina.com.cn:5050/index/spring',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -21,7 +21,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/summer',
+				url: 'http://w.rdc.sae.sina.com.cn:5050/index/summer',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -39,7 +39,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/autumn',
+				url: 'http://w.rdc.sae.sina.com.cn:5050/index/autumn',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -57,7 +57,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/winter',
+				url: 'http://w.rdc.sae.sina.com.cn:5050/index/winter',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -88,7 +88,7 @@ $(function() {
 				season = 'winter';
 			}
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/xianshi',
+				url: 'http://w.rdc.sae.sina.com.cn:5050/index/xianshi',
 				type: 'get',
 				data: {
 					season
@@ -108,9 +108,9 @@ $(function() {
 						$id = $(this).attr('data-id');
 						// if (location.search.indexOf('user=' != -1)) {
 						// 	var user = location.search.split('=')[1];
-						// 	location.href = `http://pureshop.applinzi.com/products_women.html?user=${user}&wid=${$id}`
+						// 	location.href = `http://w.rdc.sae.sina.com.cn:5050/products_women.html?user=${user}&wid=${$id}`
 						// } else {
-						location.href = `http://pureshop.applinzi.com/products_women.html?wid=${$id}`
+						location.href = `products_women.html?wid=${$id}`
 						// 	window.event.returnValue = false;
 						// }
 
