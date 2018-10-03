@@ -33,7 +33,7 @@ $(function() {
 				},
 				mounted() {
 					(async function(self) {
-						var res = await axios.get("http://www.pureshop.app.linzi.com:5050/user/islogin");
+						var res = await axios.get("http://www.pureshopapp.linzi.com:5050/user/islogin");
 						if (res.data.ok == 1) {
 							self.isLogin = true;
 							self.uname = res.data.uname;
@@ -46,7 +46,7 @@ $(function() {
 				methods: {
 					signout: async function() {
 
-						var res = await axios.get("http://www.pureshop.app.linzi.com:5050/user/signout");
+						var res = await axios.get("http://www.pureshop.applinzi.com:5050/user/signout");
 						location.href = 'http://pureshop.applinzi.com/index.html';
 
 					}

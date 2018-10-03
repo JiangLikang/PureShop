@@ -1,7 +1,7 @@
 $(function() {
 	var pro = new Promise((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.app.linzi.com:5050/index/spring',
+				url: 'http://www.pureshop.applinzi.com:5050/index/spring',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -21,7 +21,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.app.linzi.com:5050/index/summer',
+				url: 'http://www.pureshop.applinzi.com:5050/index/summer',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -39,7 +39,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.app.linzi.com:5050/index/autumn',
+				url: 'http://www.pureshop.applinzi.com:5050/index/autumn',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -57,7 +57,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.app.linzi.com:5050/index/winter',
+				url: 'http://www.pureshop.applinzi.com:5050/index/winter',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -88,7 +88,7 @@ $(function() {
 				season = 'winter';
 			}
 			$.ajax({
-				url: 'http://www.pureshop.app.linzi.com:5050/index/xianshi',
+				url: 'http://www.pureshop.applinzi.com:5050/index/xianshi',
 				type: 'get',
 				data: {
 					season
@@ -97,8 +97,8 @@ $(function() {
 				success: function(res) {
 					new Vue({
 						el: "#xianshi",
-					data: {
-						res
+						data: {
+							res
 						}
 
 
