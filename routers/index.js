@@ -3,13 +3,18 @@ const router = express.Router();
 const pool = require('../pool.js');
 
 router.get('/spring', (req, res) => {
+	var callback = req.query.callback;
 	var sql = `SELECT * FROM pureshop_product_woman WHERE type='spring'`;
 	pool.query(sql, [], (err, result) => {
 		if (err) {
 			console.log(err)
 		}
-		res.type('application/json');
-		res.jsonp(result.slice(-4));
+		if (callback) {
+			res.type('text/javascript');
+			res.send(callback + '(' + result.slice(-4) + ')');
+		}
+
+
 	})
 })
 
