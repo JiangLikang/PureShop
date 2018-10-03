@@ -12,7 +12,7 @@
 				// var params = new URLSearchParams();
 				// params.append('uname', this.uname);
 				// params.append('upwd', this.upwd);
-				var res = await axios.post('http://www.pureshop.applinzi.com:5050/user/login', Qs.stringify({
+				var res = await axios.post('http://www.pureshop.applinzi.com/user/login', Qs.stringify({
 					uname: this.uname,
 					upwd: this.upwd
 				}));

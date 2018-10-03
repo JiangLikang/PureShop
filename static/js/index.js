@@ -1,7 +1,7 @@
 $(function() {
 	var pro = new Promise((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.applinzi.com:5050/index/spring',
+				url: 'http://www.pureshop.applinzi.com/index/spring',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -21,7 +21,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.applinzi.com:5050/index/summer',
+				url: 'http://www.pureshop.applinzi.com/index/summer',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -39,7 +39,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.applinzi.com:5050/index/autumn',
+				url: 'http://www.pureshop.applinzi.com/index/autumn',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -57,7 +57,7 @@ $(function() {
 		})
 		.then((open) => {
 			$.ajax({
-				url: 'http://www.pureshop.applinzi.com:5050/index/winter',
+				url: 'http://www.pureshop.applinzi.com/index/winter',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
@@ -88,7 +88,7 @@ $(function() {
 				season = 'winter';
 			}
 			$.ajax({
-				url: 'http://www.pureshop.applinzi.com:5050/index/xianshi',
+				url: 'http://www.pureshop.applinzi.com/index/xianshi',
 				type: 'get',
 				data: {
 					season
