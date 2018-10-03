@@ -4,6 +4,7 @@ $(function() {
 				url: 'http://pureshop.applinzi.com/index/spring',
 				type: 'get',
 				dataType: 'jsonp',
+				jsonp: 'callback',
 				success: function(res) {
 					new Vue({
 						el: "#spring",
