@@ -8,7 +8,8 @@ router.get('/spring', (req, res) => {
 		if (err) {
 			console.log(err)
 		}
-		res.send(result.slice(-4));
+		res.type('application/json');
+		res.jsonp(result.slice(-4));
 	})
 })
 
