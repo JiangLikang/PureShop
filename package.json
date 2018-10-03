@@ -5,13 +5,14 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "mysql": "^2.15.0",
     "qs": "^6.5.2",
-    "session": "^0.1.0",
-    "sweetalert": "^2.1.0"
+    "sweetalert": "^2.1.0",
+    "session": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,11 +20,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "\thttps://git.sinacloud.com/pureshop"
+    "url": "https://git.sinacloud.com/pureshop"
   },
   "author": "jiangjiang",
-  "license": "ISC",
-  "scripts": {
-    "start": "node app.js"
-  }
+  "license": "ISC"
 }

@@ -1,6 +1,7 @@
 //引入项目所需的包
 //使用express来构建服务器
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const user = require('./routers/user.js');
@@ -10,6 +11,10 @@ const products_list = require('./routers/products_list');
 
 var app = express();
 app.listen(5050);
+app.use(cors({
+	origin: ['http://pureshop.applinzi.com'],
+	credentails: true
+}));
 
 //托管静态资源
 app.use(express.static('./static'));
