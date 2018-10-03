@@ -51,14 +51,14 @@ $(function() {
 		created() {
 			(async function(self) {
 				if (location.search.indexOf('type') != -1) {
-					var res = await axios.get('http://pureshop.applinzi.com/products_list/season', {
+					var res = await axios.get('http://www.pureshop.app.linzi.com:5050/products_list/season', {
 						params: {
 							type: `${type}`,
 							pno: `${pno}`
 						}
 					});
 				} else if (location.search.indexOf('keyword') != -1) {
-					var res = await axios.get('http://pureshop.applinzi.com/products_list/search', {
+					var res = await axios.get('http://www.pureshop.app.linzi.com:5050/products_list/search', {
 						params: {
 							keyword: `${keyword}`,
 							pno: `${pno}`
@@ -85,7 +85,7 @@ $(function() {
 		},
 		methods: {
 			item_click: function(id) {
-				window.open(`http://pureshop.applinzi.com/products_women.html?wid=${id}`);
+				window.open(`http://www.pureshop.app.linzi.com:5050/products_women.html?wid=${id}`);
 			},
 			page_click: function(n) {
 				if (n != this.cur) {

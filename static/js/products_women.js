@@ -4,7 +4,7 @@ $(function() {
 
 			var pro = new Promise((open) => {
 					$.ajax({
-						url: 'http://pureshop.applinzi.com/products_women/remai',
+						url: 'http://www.pureshop.app.linzi.com:5050/products_women/remai',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -23,7 +23,7 @@ $(function() {
 				})
 				.then((open) => {
 					$.ajax({
-						url: 'http://pureshop.applinzi.com/products_women/similar',
+						url: 'http://www.pureshop.app.linzi.com:5050/products_women/similar',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -41,7 +41,7 @@ $(function() {
 				})
 				.then((open) => {
 					$.ajax({
-						url: 'http://pureshop.applinzi.com/products_women/haixianggou',
+						url: 'http://www.pureshop.app.linzi.com:5050/products_women/haixianggou',
 						type: 'get',
 						dataType: 'json',
 						success: function(res) {
@@ -61,7 +61,7 @@ $(function() {
 				.then((open) => {
 					var wid = location.search.split('=')[1];
 					$.ajax({
-						url: 'http://pureshop.applinzi.com/products_women/details',
+						url: 'http://www.pureshop.app.linzi.com:5050/products_women/details',
 						type: 'get',
 						dataType: 'json',
 						data: {
@@ -81,7 +81,7 @@ $(function() {
 								},
 								methods: {
 									cmt_send: async function() {
-										var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
+										var res = await axios.post('http://www.pureshop.app.linzi.com:5050/user/addComments', Qs.stringify({
 											wid: this.wid,
 											content: this.content
 										}))
@@ -120,11 +120,11 @@ $(function() {
 										}
 									},
 									get_comments_list: async function() {
-										var res = await axios.get('http://pureshop.applinzi.com/user/commentsList?wid=' + this.wid)
+										var res = await axios.get('http://www.pureshop.app.linzi.com:5050/user/commentsList?wid=' + this.wid)
 										this.list = res.data;
 									},
 									add_to_cart: async function() {
-										var res = await axios.get('http://pureshop.applinzi.com/user/addToCart', {
+										var res = await axios.get('http://www.pureshop.app.linzi.com:5050/user/addToCart', {
 											params: {
 												wid: this.wid,
 												img: this.res[0].show_pic,
