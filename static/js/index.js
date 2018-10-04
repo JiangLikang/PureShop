@@ -3,6 +3,7 @@ $(function() {
 			$.ajax({
 				url: 'http://pureshop.applinzi.com/index/spring',
 				type: 'get',
+				dataType: 'json',
 				success: function(res) {
 					new Vue({
 						el: "#spring",
