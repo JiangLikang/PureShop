@@ -19,11 +19,6 @@ app.all('*', function(req, res, next) {
 	next();
 });
 app.listen(5050);
-app.use(cors({
-	origin: ['http://pureshop.applinzi.com'],
-	credentails: true
-}));
-
 //托管静态资源
 app.use(express.static('./static'));
 app.use(session({
