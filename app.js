@@ -17,7 +17,7 @@ app.all('*', function(req, res, next) {
 	res.header('Access-Control-Max-Age', 1728000); //预请求缓存20天
 	next();
 });
-app.listen(5050, 'pureshop.applinzi.com');
+app.listen(5050);
 //托管静态资源
 app.use(express.static('./static'));
 app.use(session({
