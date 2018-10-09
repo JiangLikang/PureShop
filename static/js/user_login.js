@@ -28,8 +28,8 @@
 					}).then(function(value) {
 						if (value) {
 
-							// self.location = document.referrer;
-							location.href = 'http://www.pureshop.applinzi.com';
+							self.location = document.referrer;
+							// location.href = 'http://www.pureshop.applinzi.com';
 						}
 					})
 
