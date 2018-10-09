@@ -54,7 +54,7 @@ router.post('/register', (req, res) => {
 				if (result.affectedRows > 0) {
 					res.send(`<script>
 					alert('注册成功！')
-					location.href='http://localhost:5050/index.html';
+					location.href='http://pureshop.applinzi.com/index.html';
 					</script>`);
 					// res.send({
 					// 	ok: 1,
