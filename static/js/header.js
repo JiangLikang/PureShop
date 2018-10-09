@@ -33,7 +33,7 @@ $(function() {
 				},
 				mounted() {
 					(async function(self) {
-						var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
+						var res = await axios.get("http://pureshop.applinzi.com/user/isLogin");
 						if (res.data.ok == 1) {
 							self.isLogin = true;
 							self.uname = res.data.uname;
