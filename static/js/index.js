@@ -1,7 +1,7 @@
 $(function() {
 	var pro = new Promise((open) => {
 			$.ajax({
-				url: 'http://pureshop.applinzi.com/index/spring',
+				url: 'http://0.0.0.0:5050/index/spring',
 				type: 'get',
 				dataType: 'json',
 				success: function(res) {
