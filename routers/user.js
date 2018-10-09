@@ -96,11 +96,11 @@ router.post('/login', (req, res) => {
 				if (result2.length > 0) {
 					req.session.uid = result2[0].uid;
 					req.session.uname = result2[0].uname;
-					// res.send({
-					// 	ok: 1,
-					// 	msg: '登录成功！'
-					// })
-					res.send(req.session);
+					res.send({
+						ok: 1,
+						msg: '登录成功！'
+					})
+					// res.send(req.session);
 				} else {
 					res.send({
 						ok: 0,
