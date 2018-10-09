@@ -15,4 +15,4 @@ var pool = mysql.createPool({
 // 	database: 'app_pureshop'
 // });
 //导出连接数据库
-module.exports = connection;
+module.exports = pool;
