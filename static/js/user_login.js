@@ -28,7 +28,8 @@
 						}
 					}).then(function(value) {
 						if (value) {
-
+							sessionStorage.setItem('uid', res.data.session.uid);
+							sessionStorage.setItem('uname', res.data.session.name);
 							self.location = document.referrer;
 						}
 					})

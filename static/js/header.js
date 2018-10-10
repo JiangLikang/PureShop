@@ -32,16 +32,20 @@ $(function() {
 					}
 				},
 				mounted() {
-					(async function(self) {
-						axios.defaults.withCredentials = true;
-						var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
-						if (res.data.ok == 1) {
-							self.isLogin = true;
-							self.uname = res.data.uname;
-						} else {
-							self.isLogin = false;
-						}
-					})(this);
+					// (async function(self) {
+					// 	axios.defaults.withCredentials = true;
+					// 	var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
+					// 	if (res.data.ok == 1) {
+					// 		self.isLogin = true;
+					// 		self.uname = res.data.uname;
+					// 	} else {
+					// 		self.isLogin = false;
+					// 	}
+					// })(this);
+					if (sessionStorage.length > 0) {
+						this.uname = sessionStorage.uname;
+						this.isLogin = true;
+					}
 
 				},
 				methods: {
