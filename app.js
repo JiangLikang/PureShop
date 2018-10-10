@@ -16,6 +16,7 @@ app.all('*', function(req, res, next) {
 	res.header('Access-Control-Allow-Headers', 'Content-type');
 	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS,PATCH");
 	res.header('Access-Control-Max-Age', 1728000); //预请求缓存20天
+	res.header("Access-Control-Allow-Credentials", "true"); // 允许客户端携带跨域cookie，此时origin值不能为“*”，只能为指定单一域名
 	next();
 });
 app.listen(5050, '0.0.0.0');
