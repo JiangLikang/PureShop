@@ -49,9 +49,10 @@ $(function() {
 
 				},
 				methods: {
-					signout: async function() {
-						axios.defaults.withCredentials = true;
-						var res = await axios.get("http://pureshop.applinzi.com/user/signout");
+					signout: function() {
+						// axios.defaults.withCredentials = true;
+						// var res = await axios.get("http://pureshop.applinzi.com/user/signout");
+						sessionStorage = {};
 						location.href = 'http://pureshop.applinzi.com/index.html';
 
 					}
