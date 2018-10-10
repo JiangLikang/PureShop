@@ -133,7 +133,7 @@ router.get('/isLogin', (req, res) => {
 	} else {
 		res.send({
 			ok: 0,
-			obj: res.session
+			obj: req.session
 		})
 	}
 })
