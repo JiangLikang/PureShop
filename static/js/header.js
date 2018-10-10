@@ -33,6 +33,7 @@ $(function() {
 				},
 				mounted() {
 					(async function(self) {
+						axios.defaults.withCredentials = true;
 						var res = await axios.get("http://pureshop.applinzi.com/user/islogin");
 						if (res.data.ok == 1) {
 							self.isLogin = true;
