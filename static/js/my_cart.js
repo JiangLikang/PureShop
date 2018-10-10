@@ -3,23 +3,42 @@ $(function() {
 		el: "#cart-list",
 		data: {
 			list: [],
-			total: 0
+			total: 0,
+			uid: ''
 		},
 		methods: {
 			getCartList: async function() {
-				axios.defaults.withCredentials = true;
-				var res = await axios.get('http://pureshop.applinzi.com/user/getCart')
-				if (res.data.ok == 1) {
-					this.list = res.data.msg;
-					this.total = this.getSubTotal(this.list);
-				} else {
+				this.uid = sessionStorage.uid;
+				if (this.uid == '') {
 					swal({
-						text: res.data.msg,
+						title: "",
+						text: '亲，您还未登录哦',
+						icon: "error",
 						button: {
-							text: '确定'
+							text: "确定",
+							value: true
 						}
 					})
+				} else {
+					axios.defaults.withCredentials = true;
+					var res = await axios.get('http://pureshop.applinzi.com/user/getCart', {
+						params: {
+							uid: this.uid
+						}
+					})
+					if (res.data.ok == 1) {
+						this.list = res.data.msg;
+						this.total = this.getSubTotal(this.list);
+					} else {
+						swal({
+							text: res.data.msg,
+							button: {
+								text: '确定'
+							}
+						})
+					}
 				}
+
 			},
 			getSubTotal: function(list) {
 				var sum = 0;
@@ -40,34 +59,15 @@ $(function() {
 				this.total = this.getSubTotal(this.list);
 			},
 			del_item: async function(cid) {
-				// swal({
-				// 	text: '亲，确定要删除这条商品吗',
-				// 	buttons: {
-				// 		button1: {
-				// 			text: '确定',
-				// 			value: true
-				// 		},
-				// 		button2: {
-				// 			text: '我再考虑下',
-				// 			value: false
-				// 		}
-				// 	}
-				// }).then(async function(value) {
-				// if (value) {
 				axios.defaults.withCredentials = true;
 				var res = await axios.get('http://pureshop.applinzi.com/user/delCartItem', {
 					params: {
-						cid: cid
+						cid: cid,
+						uid: this.uid
 					}
-				}) //.then(function(res) {
+				})
 				if (res.data.ok == 1) {
-					// swal({
-					// 	text: res.data.msg,
-					// 	icon: 'success',
-					// 	button: {
-					// 		text: '确定'
-					// 	}
-					// })
+
 					this.list = [];
 					this.getCartList();
 				} else {
@@ -79,14 +79,6 @@ $(function() {
 						}
 					})
 				}
-				// })
-
-
-
-				// } else {
-
-				// }
-				// })
 
 			},
 			go_detail(wid) {

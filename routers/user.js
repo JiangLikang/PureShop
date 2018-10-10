@@ -189,71 +189,61 @@ router.get('/commentsList', (req, res) => {
 })
 
 router.get('/addToCart', (req, res) => {
-	if (req.session.uid !== undefined) {
-		var uid = req.session.uid;
-		var {
-			wid,
-			title,
-			img,
-			size,
-			color,
-			count,
-			oldP,
-			nowP
-		} = req.query;
-		for (var key in req.query) {
-			if (req.query[key] == '') {
-				res.send({
-					ok: -1,
-					msg: '亲，您选择的商品信息不完整哦'
-				})
-				return;
-			}
-		}
-		var sql = "INSERT INTO pureshop_shoppingcart VALUES(NULL,?,?,?,?,?,?,?,?,?,0)";
-		pool.query(sql, [uid, wid, img, title, color, size, oldP, nowP, count], (err, result) => {
-			if (err) {
-				throw err
-			}
-			if (result.affectedRows > 0) {
-				res.send({
-					ok: 1,
-					msg: '添加成功！'
-				})
-			} else {
-				res.send({
-					ok: 0,
-					msg: '添加失败 T.T'
-				})
-			}
-		})
 
-	} else {
-		res.send({
-			ok: -1,
-			msg: '亲，您还没有登录哦'
-		})
+	var {
+		uid,
+		wid,
+		title,
+		img,
+		size,
+		color,
+		count,
+		oldP,
+		nowP
+	} = req.query;
+	for (var key in req.query) {
+		if (req.query[key] == '') {
+			res.send({
+				ok: -1,
+				msg: '亲，您选择的商品信息不完整哦'
+			})
+			return;
+		}
 	}
-})
-router.get('/getCart', (req, res) => {
-	if (req.session.uid !== undefined) {
-		var sql = 'SELECT * FROM pureshop_shoppingcart WHERE uid=?'
-		var uid = req.session.uid;
-		pool.query(sql, [uid], (err, result) => {
-			if (err) {
-				throw err
-			}
+	var sql = "INSERT INTO pureshop_shoppingcart VALUES(NULL,?,?,?,?,?,?,?,?,?,0)";
+	pool.query(sql, [uid, wid, img, title, color, size, oldP, nowP, count], (err, result) => {
+		if (err) {
+			throw err
+		}
+		if (result.affectedRows > 0) {
 			res.send({
 				ok: 1,
-				msg: result
+				msg: '添加成功！'
 			})
-		})
-	} else {
+		} else {
+			res.send({
+				ok: 0,
+				msg: '添加失败 T.T'
+			})
+		}
+	})
+
+
+})
+router.get('/getCart', (req, res) => {
+
+	var sql = 'SELECT * FROM pureshop_shoppingcart WHERE uid=?'
+	var uid = req.query.uid;
+	pool.query(sql, [uid], (err, result) => {
+		if (err) {
+			throw err
+		}
 		res.send({
-			ok: -1,
-			msg: '亲，您还没有登录哦'
+			ok: 1,
+			msg: result
 		})
-	}
+	})
+
 })
 
 router.get('/delCartItem', (req, res) => {

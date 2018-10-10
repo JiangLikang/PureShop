@@ -78,50 +78,64 @@ $(function() {
 									size: '',
 									color: '',
 									count: 1,
-									uname: ''
+									uname: '',
+									uid: ''
 								},
 								methods: {
 									cmt_send: async function() {
 										this.uname = sessionStorage.uname;
-										axios.defaults.withCredentials = true;
-										var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
-											wid: this.wid,
-											content: this.content,
-											uname: this.uname
-										}))
-										if (res.data.ok == -1) {
+										if (this.uname == '') {
 											swal({
 												title: "",
-												text: res.data.msg,
+												text: '亲，您还未登录哦',
 												icon: "error",
 												button: {
 													text: "确定",
 													value: true
 												}
 											})
-										} else if (res.data.ok == 0) {
-											swal({
-												title: "",
-												text: res.data.msg,
-												icon: "error",
-												button: {
-													text: "确定",
-													value: true
-												}
-											})
-										} else if (res.data.ok == 1) {
-											this.content = '';
-											this.get_comments_list();
-											swal({
-												title: "",
-												text: res.data.msg,
-												icon: "success",
-												button: {
-													text: "确定",
-													value: true
-												}
-											})
+										} else {
+											axios.defaults.withCredentials = true;
+											var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
+												wid: this.wid,
+												content: this.content,
+												uname: this.uname
+											}))
+											if (res.data.ok == -1) {
+												swal({
+													title: "",
+													text: res.data.msg,
+													icon: "error",
+													button: {
+														text: "确定",
+														value: true
+													}
+												})
+											} else if (res.data.ok == 0) {
+												swal({
+													title: "",
+													text: res.data.msg,
+													icon: "error",
+													button: {
+														text: "确定",
+														value: true
+													}
+												})
+											} else if (res.data.ok == 1) {
+												this.content = '';
+												this.get_comments_list();
+												swal({
+													title: "",
+													text: res.data.msg,
+													icon: "success",
+													button: {
+														text: "确定",
+														value: true
+													}
+												})
+											}
 										}
+
 									},
 									get_comments_list: async function() {
 										axios.defaults.withCredentials = true;
@@ -129,56 +143,71 @@ $(function() {
 										this.list = res.data;
 									},
 									add_to_cart: async function() {
-										axios.defaults.withCredentials = true;
-										var res = await axios.get('http://pureshop.applinzi.com/user/addToCart', {
-											params: {
-												wid: this.wid,
-												img: this.res[0].show_pic,
-												title: this.res[0].title,
-												oldP: this.res[0].price + 50,
-												nowP: this.res[0].price,
-												size: this.size,
-												color: this.color,
-												count: this.count,
-											}
-										})
-										if (res.data.ok == 1) {
+										this.uid = sessionStorage.uid;
+										if (this.uid == '') {
 											swal({
 												title: "",
-												text: res.data.msg,
-												icon: "success",
-												buttons: {
-													button1: {
-														text: "留在本页",
-														value: true
-													},
-													button2: {
-														text: '进入购物车',
-														value: false
-													}
-												}
-
-											}).then(function(value) {
-												if (value) {
-
-												} else {
-													location.href = 'http://pureshop.applinzi.com/my_cart.html'
-												}
-
-											})
-										} else {
-											swal({
-												title: "",
-												text: res.data.msg,
+												text: '亲，您还未登录哦',
 												icon: "error",
 												button: {
 													text: "确定",
 													value: true
 												}
-
-
 											})
+										} else {
+											axios.defaults.withCredentials = true;
+											var res = await axios.get('http://pureshop.applinzi.com/user/addToCart', {
+												params: {
+													wid: this.wid,
+													img: this.res[0].show_pic,
+													title: this.res[0].title,
+													oldP: this.res[0].price + 50,
+													nowP: this.res[0].price,
+													size: this.size,
+													color: this.color,
+													count: this.count,
+													uid: this.uid
+												}
+											})
+											if (res.data.ok == 1) {
+												swal({
+													title: "",
+													text: res.data.msg,
+													icon: "success",
+													buttons: {
+														button1: {
+															text: "留在本页",
+															value: true
+														},
+														button2: {
+															text: '进入购物车',
+															value: false
+														}
+													}
+
+												}).then(function(value) {
+													if (value) {
+
+													} else {
+														location.href = 'http://pureshop.applinzi.com/my_cart.html'
+													}
+
+												})
+											} else {
+												swal({
+													title: "",
+													text: res.data.msg,
+													icon: "error",
+													button: {
+														text: "确定",
+														value: true
+													}
+
+
+												})
+											}
 										}
+
 									},
 									get_size(size) {
 										this.size = size;
