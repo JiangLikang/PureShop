@@ -9,7 +9,7 @@ $(function() {
 		methods: {
 			getCartList: async function() {
 				this.uid = sessionStorage.uid;
-				if (this.uid == '') {
+				if (sessionStorage.length == 0) {
 					swal({
 						title: "",
 						text: '亲，您还未登录哦',

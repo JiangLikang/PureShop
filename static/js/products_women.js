@@ -84,7 +84,7 @@ $(function() {
 								methods: {
 									cmt_send: async function() {
 										this.uname = sessionStorage.uname;
-										if (this.uname == '') {
+										if (sessionStorage.length == 0) {
 											swal({
 												title: "",
 												text: '亲，您还未登录哦',
@@ -144,7 +144,7 @@ $(function() {
 									},
 									add_to_cart: async function() {
 										this.uid = sessionStorage.uid;
-										if (this.uid == '') {
+										if (sessionStorage.length == 0) {
 											swal({
 												title: "",
 												text: '亲，您还未登录哦',
