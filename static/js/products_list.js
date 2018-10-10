@@ -51,6 +51,7 @@ $(function() {
 		created() {
 			(async function(self) {
 				if (location.search.indexOf('type') != -1) {
+					axios.defaults.withCredentials = true;
 					var res = await axios.get('http://pureshop.applinzi.com/products_list/season', {
 						params: {
 							type: `${type}`,
@@ -58,6 +59,7 @@ $(function() {
 						}
 					});
 				} else if (location.search.indexOf('keyword') != -1) {
+					axios.defaults.withCredentials = true;
 					var res = await axios.get('http://pureshop.applinzi.com/products_list/search', {
 						params: {
 							keyword: `${keyword}`,

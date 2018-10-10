@@ -7,6 +7,7 @@ $(function() {
 		},
 		methods: {
 			getCartList: async function() {
+				axios.defaults.withCredentials = true;
 				var res = await axios.get('http://pureshop.applinzi.com/user/getCart')
 				if (res.data.ok == 1) {
 					this.list = res.data.msg;
@@ -53,6 +54,7 @@ $(function() {
 				// 	}
 				// }).then(async function(value) {
 				// if (value) {
+				axios.defaults.withCredentials = true;
 				var res = await axios.get('http://pureshop.applinzi.com/user/delCartItem', {
 					params: {
 						cid: cid

@@ -81,6 +81,7 @@ $(function() {
 								},
 								methods: {
 									cmt_send: async function() {
+										axios.defaults.withCredentials = true;
 										var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
 											wid: this.wid,
 											content: this.content
@@ -120,10 +121,12 @@ $(function() {
 										}
 									},
 									get_comments_list: async function() {
+										axios.defaults.withCredentials = true;
 										var res = await axios.get('http://pureshop.applinzi.com/user/commentsList?wid=' + this.wid)
 										this.list = res.data;
 									},
 									add_to_cart: async function() {
+										axios.defaults.withCredentials = true;
 										var res = await axios.get('http://pureshop.applinzi.com/user/addToCart', {
 											params: {
 												wid: this.wid,

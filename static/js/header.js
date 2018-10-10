@@ -46,7 +46,7 @@ $(function() {
 				},
 				methods: {
 					signout: async function() {
-
+						axios.defaults.withCredentials = true;
 						var res = await axios.get("http://pureshop.applinzi.com/user/signout");
 						location.href = 'http://pureshop.applinzi.com/index.html';
 
