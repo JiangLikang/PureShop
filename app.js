@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const user = require('./routers/user.js');
 const products_women = require('./routers/products_women');
 const index = require('./routers/index');
@@ -20,8 +21,9 @@ app.all('*', function(req, res, next) {
 app.listen(5050, '0.0.0.0');
 //托管静态资源
 app.use(express.static('./static'));
+app.use(cookieParser());
 app.use(session({
-	secret: '随机字符串',
+	secret: '12345',
 	resave: false,
 	saveUninitialized: false
 }))
