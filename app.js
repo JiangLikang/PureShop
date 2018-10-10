@@ -25,7 +25,10 @@ app.use(cookieParser());
 app.use(session({
 	secret: '12345',
 	resave: false,
-	saveUninitialized: false
+	cookie: {
+		maxAge: 60000
+	},
+	saveUninitialized: true
 }))
 //配置body-parser
 app.use(bodyParser.urlencoded({
