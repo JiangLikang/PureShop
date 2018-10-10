@@ -17,6 +17,8 @@
 					upwd: this.upwd
 				}));
 				if (res.data.ok == 1) {
+					// alert(res.data.msg);
+					// location.href = 'http://localhost:8080/index.html';
 					swal({
 						title: "",
 						text: "登录成功！",
@@ -27,14 +29,13 @@
 						}
 					}).then(function(value) {
 						if (value) {
-							// sessionStorage.setItem('uid', res.data.session.uid); //设置指定session值
-							// sessionStorage.setItem('uname', res.data.session.uname); //设置指定session值
+
 							self.location = document.referrer;
-							// location.href = 'http://www.pureshop.applinzi.com';
 						}
 					})
 
 				} else {
+					// alert(res.data.msg);
 					swal({
 						title: "",
 						text: res.data.msg,
@@ -45,7 +46,7 @@
 						}
 					})
 				}
-				// console.log(res);
+
 			}
 		}
 
