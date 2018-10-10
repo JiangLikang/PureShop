@@ -52,7 +52,7 @@ $(function() {
 					signout: function() {
 						// axios.defaults.withCredentials = true;
 						// var res = await axios.get("http://pureshop.applinzi.com/user/signout");
-						sessionStorage = {};
+						sessionStorage.clear();
 						location.href = 'http://pureshop.applinzi.com/index.html';
 
 					}
