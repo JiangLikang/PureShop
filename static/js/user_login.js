@@ -29,7 +29,7 @@
 					}).then(function(value) {
 						if (value) {
 							sessionStorage.setItem('uid', res.data.session.uid);
-							sessionStorage.setItem('uname', res.data.session.name);
+							sessionStorage.setItem('uname', res.data.session.uname);
 							self.location = document.referrer;
 						}
 					})
