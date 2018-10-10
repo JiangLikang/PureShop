@@ -77,14 +77,17 @@ $(function() {
 									list: [],
 									size: '',
 									color: '',
-									count: 1
+									count: 1,
+									uname: ''
 								},
 								methods: {
 									cmt_send: async function() {
+										this.uname = sessionStorage.uname;
 										axios.defaults.withCredentials = true;
 										var res = await axios.post('http://pureshop.applinzi.com/user/addComments', Qs.stringify({
 											wid: this.wid,
-											content: this.content
+											content: this.content,
+											uname: this.uname
 										}))
 										if (res.data.ok == -1) {
 											swal({
