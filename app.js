@@ -23,7 +23,7 @@ app.use(express.static('./static'));
 app.use(session({
 	secret: '随机字符串',
 	resave: false,
-	saveUninitialized: true
+	saveUninitialized: false
 }))
 //配置body-parser
 app.use(bodyParser.urlencoded({
